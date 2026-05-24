@@ -29,68 +29,205 @@ body.en .en-b{display:block;}body.en .ua-b{display:none;}
 /* ── NAV ── */
 nav{position:fixed;top:0;left:0;right:0;z-index:200;background:var(--bg2);border-bottom:1px solid var(--border);}
 .nav-gold{height:2px;background:var(--gold);}
-.nav-in{max-width:1280px;margin:0 auto;padding:0 24px;display:flex;align-items:center;height:44px;gap:20px;}
+.nav-in{max-width:1280px;margin:0 auto;padding:0 24px;display:flex;align-items:center;height:44px;gap:8px;}
 .nav-logo{display:flex;align-items:center;text-decoration:none;margin-right:auto;}
 .nav-logo-text{font-family:'Oswald',sans-serif;font-size:22px;letter-spacing:.04em;color:var(--ink);font-weight:600;}
 .nav-logo-text span{color:var(--gold);}
-.nav-links{display:flex;align-items:center;gap:22px;}
-.nav-links a,.nav-links button{background:none;border:none;cursor:pointer;font-family:'Inter',sans-serif;font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .15s;padding:0;}
-.nav-links a:hover,.nav-links button:hover{color:var(--gold);}
-.ltog{display:flex;border:1px solid var(--border);overflow:hidden;}
+
+/* Nav links — all consistent gold-bordered style */
+.nav-links{display:flex;align-items:center;gap:6px;}
+.nav-btn{
+  padding:5px 14px;
+  font-family:'Inter',sans-serif;
+  font-size:10px;
+  font-weight:700;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:var(--muted);
+  text-decoration:none;
+  border:1px solid transparent;
+  background:transparent;
+  cursor:pointer;
+  transition:all .15s;
+  white-space:nowrap;
+  display:inline-flex;
+  align-items:center;
+}
+.nav-btn:hover{color:var(--gold);border-color:var(--gold);}
+.nav-btn.active{color:var(--gold);border-color:var(--gold);}
+
+.ltog{display:flex;border:1px solid var(--border);overflow:hidden;margin-left:8px;}
 .ltog button{padding:4px 9px;font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;font-family:'Inter',sans-serif;border:none;background:transparent;color:var(--muted);cursor:pointer;transition:all .15s;}
 .ltog button.on{background:var(--gold);color:var(--ink);}
-.btn-g{padding:6px 18px;background:var(--gold);color:var(--ink);font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;border:none;cursor:pointer;font-family:'Inter',sans-serif;transition:background .15s;text-decoration:none;display:inline-block;}
-.btn-g:hover{background:#A07A08;}
-.btn-o{padding:6px 18px;border:1px solid var(--border);color:var(--muted);font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;background:transparent;cursor:pointer;font-family:'Inter',sans-serif;text-decoration:none;display:inline-block;transition:all .15s;}
-.btn-o:hover{border-color:var(--gold);color:var(--gold);}
-.burger{display:none;background:none;border:none;cursor:pointer;padding:4px;}
+
+.burger{display:none;background:none;border:none;cursor:pointer;padding:4px;margin-left:auto;}
 .burger span{display:block;width:18px;height:1.5px;background:var(--ink);margin:4px 0;}
 .mobnav{display:none;padding:14px 24px;background:var(--bg2);border-top:1px solid var(--border);}
 .mobnav.open{display:block;}
-.mobnav a,.mobnav button{display:block;width:100%;text-align:left;padding:9px 0;font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--ink2);background:none;border:none;cursor:pointer;font-family:'Inter',sans-serif;border-bottom:1px solid var(--border);text-decoration:none;}
+.mobnav a,.mobnav button{display:block;width:100%;text-align:left;padding:9px 0;font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--ink2);background:none;border:none;border-bottom:1px solid var(--border);cursor:pointer;font-family:'Inter',sans-serif;text-decoration:none;}
+.mobnav a:last-child,.mobnav button:last-child{border-bottom:none;}
 
 /* ── HERO ── */
-.hero{margin-top:0;padding-top:46px;position:relative;min-height:100vh;display:flex;flex-direction:column;}
-.hero-img{position:relative;flex:1;min-height:82vh;overflow:hidden;}
-.hero-bg{position:absolute;inset:0;background-image:url('hero.jpg');background-size:cover;background-position:center 40%;}
-.hero-fade{position:absolute;inset:0;background:linear-gradient(to top,rgba(10,10,8,0.9) 0%,rgba(10,10,8,0.5) 30%,rgba(10,10,8,0.15) 65%,transparent 100%);}
-.hero-kicker{position:absolute;top:22px;left:32px;font-size:10px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);text-shadow:0 1px 8px rgba(0,0,0,.6);}
-.hero-card{display:none;}
-.dpulse{width:6px;height:6px;border-radius:50%;background:var(--gold);animation:gpulse 2s infinite;display:inline-block;margin-right:5px;vertical-align:middle;}
-@keyframes gpulse{0%,100%{opacity:1;}50%{opacity:.3;}}
-.card-n{font-family:'Oswald',sans-serif;font-size:44px;font-weight:700;color:var(--gold);line-height:1;margin:6px 0 2px;letter-spacing:-.01em;}
-.card-sub{font-size:10px;font-weight:700;color:#F2F2F0;text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px;}
-.card-hr{border:none;border-top:1px solid rgba(255,255,255,.1);margin-bottom:8px;}
-.card-d{font-size:9px;color:var(--muted2);text-transform:uppercase;letter-spacing:.1em;margin-bottom:3px;}
-.card-hash{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--gold);}
-.card-lnk{display:inline-block;margin-top:5px;font-size:9px;color:var(--gold);text-decoration:none;text-transform:uppercase;letter-spacing:.1em;}
-.card-lnk:hover{opacity:.7;}
-.hero-hl{position:absolute;bottom:0;left:0;right:0;padding:0 32px 32px;}
-.h1{font-family:'Oswald',sans-serif;font-weight:700;line-height:.96;color:#F4F2EE;font-size:clamp(36px,7vw,88px);letter-spacing:-.02em;text-shadow:0 2px 24px rgba(0,0,0,.5);}
-.h1g{color:var(--gold);}
-.h1sub{font-family:'Oswald',sans-serif;font-size:clamp(12px,3vw,20px);letter-spacing:.04em;color:var(--muted);margin-bottom:14px;margin-top:4px;}
-.hero-below{background:var(--bg);padding:40px 32px 0;}
-.hb-in{max-width:1280px;margin:0 auto;}
-.hero-p{font-size:15px;color:var(--ink2);line-height:1.78;max-width:520px;margin-bottom:22px;}
-.hbtns{display:flex;gap:10px;flex-wrap:wrap;}
-@media(max-width:480px){.hbtns{flex-direction:column;gap:8px;}.btn-g,.btn-o{text-align:center;}.hero-img{min-height:38vh;}.h1{font-size:clamp(28px,9vw,44px);}}
+.hero{margin-top:0;padding-top:46px;position:relative;}
 
-/* ── STATS ── */
-.stats{max-width:1280px;margin:40px auto 0;display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--gold);}
+/* Full-viewport hero image */
+.hero-img{
+  position:relative;
+  height:100vh;
+  min-height:600px;
+  overflow:hidden;
+}
+.hero-bg{
+  position:absolute;
+  inset:0;
+  background-image:url('hero.jpg');
+  background-size:cover;
+  background-position:center 40%;
+}
+/* Deep gradient: dark at bottom, fades to transparent at top, slight darkening at top for text */
+.hero-fade{
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(to bottom, rgba(10,10,8,0.45) 0%, transparent 20%),
+    linear-gradient(to top, rgba(10,10,8,0.97) 0%, rgba(10,10,8,0.75) 20%, rgba(10,10,8,0.3) 50%, transparent 75%);
+}
+
+.hero-kicker{
+  position:absolute;
+  top:24px;
+  left:32px;
+  font-size:10px;
+  font-weight:600;
+  letter-spacing:.2em;
+  text-transform:uppercase;
+  color:rgba(255,255,255,0.75);
+}
+
+/* Hero content — full bottom of image */
+.hero-content{
+  position:absolute;
+  bottom:0;
+  left:0;
+  right:0;
+  padding:0 32px 48px;
+  max-width:1280px;
+  margin:0 auto;
+  /* keep left-aligned */
+  left:0;right:0;
+}
+
+.h1{
+  font-family:'Oswald',sans-serif;
+  font-weight:700;
+  line-height:.93;
+  color:#F4F2EE;
+  font-size:clamp(32px,5vw,68px);
+  letter-spacing:-.01em;
+  margin-bottom:24px;
+}
+.h1g{color:var(--gold);}
+
+/* Two CTA buttons below headline */
+.hero-btns{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-bottom:40px;
+}
+.btn-hero-primary{
+  padding:12px 28px;
+  background:var(--gold);
+  color:var(--ink);
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  font-family:'Inter',sans-serif;
+  border:none;
+  cursor:pointer;
+  text-decoration:none;
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  transition:background .15s;
+}
+.btn-hero-primary:hover{background:#A07A08;}
+.btn-hero-secondary{
+  padding:12px 28px;
+  border:1px solid rgba(255,255,255,.45);
+  color:rgba(255,255,255,.85);
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  font-family:'Inter',sans-serif;
+  background:transparent;
+  cursor:pointer;
+  text-decoration:none;
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  transition:all .15s;
+}
+.btn-hero-secondary:hover{border-color:var(--gold);color:var(--gold);}
+
+/* Inline stats strip at bottom of hero */
+.hero-stats-strip{
+  display:flex;
+  gap:0;
+  border-top:1px solid rgba(255,255,255,.15);
+  padding-top:20px;
+  flex-wrap:wrap;
+}
+.hss-item{
+  padding:0 28px 0 0;
+  margin-right:28px;
+  border-right:1px solid rgba(255,255,255,.12);
+}
+.hss-item:last-child{border-right:none;}
+.hss-n{
+  font-family:'Oswald',sans-serif;
+  font-size:28px;
+  font-weight:700;
+  color:var(--gold);
+  line-height:1;
+  margin-bottom:2px;
+}
+.hss-l{
+  font-size:9px;
+  font-weight:600;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:rgba(255,255,255,.5);
+}
+
+/* ── STATS (below hero) ── */
+.stats-row{
+  max-width:1280px;
+  margin:0 auto;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  border-top:2px solid var(--gold);
+  border-bottom:1px solid var(--border);
+}
 .stat{padding:20px 22px;border-right:1px solid var(--border);}
 .stat:last-child{border-right:none;}
-.stat-n{font-family:'Oswald',sans-serif;font-size:40px;font-weight:700;color:var(--ink);line-height:1;margin-bottom:3px;letter-spacing:-.01em;}
+.stat-n{font-family:'Oswald',sans-serif;font-size:40px;font-weight:700;color:var(--ink);line-height:1;margin-bottom:3px;}
 .stat-l{font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:2px;}
 .stat-s{font-size:10px;color:var(--muted2);}
 .stat-a{font-size:10px;color:var(--gold);text-decoration:none;display:block;margin-top:2px;}
 .stat-a:hover{opacity:.7;}
-.pilot-n{max-width:1280px;margin:0 auto;padding:8px 22px;border-top:1px solid var(--border);text-align:center;font-size:10px;color:var(--muted2);letter-spacing:.15em;text-transform:uppercase;}
 
 /* ── SHARED ── */
 .sec-lbl{font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;display:flex;align-items:center;gap:10px;}
 .sec-lbl::before{content:'';display:block;width:20px;height:1px;background:var(--gold);}
-.sec-h2{font-family:'Oswald',sans-serif;font-size:clamp(32px,5vw,64px);font-weight:700;line-height:1.0;margin-bottom:14px;letter-spacing:-.01em;}
+.sec-h2{font-family:'Oswald',sans-serif;font-size:clamp(32px,5vw,64px);font-weight:700;line-height:1.0;margin-bottom:14px;}
 .gbar{background:var(--gold);color:var(--ink);padding:0 6px;display:inline-block;line-height:1.05;}
+.btn-g{padding:8px 22px;background:var(--gold);color:var(--ink);font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;border:none;cursor:pointer;font-family:'Inter',sans-serif;transition:background .15s;text-decoration:none;display:inline-block;}
+.btn-g:hover{background:#A07A08;}
+.btn-o{padding:8px 22px;border:1px solid var(--border);color:var(--muted);font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;background:transparent;cursor:pointer;font-family:'Inter',sans-serif;text-decoration:none;display:inline-block;transition:all .15s;}
+.btn-o:hover{border-color:var(--gold);color:var(--gold);}
 
 /* ── CHALLENGE ── */
 .challenge{padding:72px 32px;background:var(--surface);}
@@ -106,28 +243,23 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;background:var(--bg2);border
 /* ── WALL ── */
 .wall-sec{padding:72px 32px 0;background:var(--bg2);}
 .wall-sec-in{max-width:1280px;margin:0 auto;}
-.wgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:2px;margin-top:28px;}
-.wc{background:var(--surface);padding:22px;border:1px solid var(--border);transition:border-color .2s;display:flex;flex-direction:column;}
-.wc:hover{border-color:var(--gold);}
-.wc-top{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:14px;}
-.wc-num{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--muted2);font-weight:400;letter-spacing:.05em;padding-top:2px;}
+.wgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;margin-top:28px;}
+.wc{background:var(--surface);padding:22px;border:1px solid var(--border);border-top:2px solid var(--gold);transition:box-shadow .2s;display:flex;flex-direction:column;}
+.wc:hover{box-shadow:0 4px 20px rgba(0,0,0,.07);}
 .wc-name{font-family:'Oswald',sans-serif;font-size:20px;font-weight:600;color:var(--ink);margin-bottom:12px;letter-spacing:.01em;line-height:1.1;}
-.wc-tags{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:11px;align-items:center;}
-.tag{font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:2px 7px;border:1px solid var(--gold);color:var(--gold);}
-.tag-uk{font-size:9px;color:var(--muted2);margin-left:2px;}
+.wc-tags{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:11px;}
+.tag{font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:2px 7px;border:1px solid rgba(184,150,12,0.5);color:var(--gold);}
 .wc-impact{font-size:12px;color:var(--ink2);line-height:1.7;flex:1;margin-bottom:16px;}
 .wc-foot{padding-top:10px;border-top:1px solid var(--border);margin-top:auto;}
-.vbadge{display:flex;align-items:center;gap:5px;font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:3px;}
+.wc-foot-row{display:flex;align-items:center;justify-content:space-between;gap:8px;}
+.vbadge{display:flex;align-items:center;gap:5px;font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);}
 .vbadge svg{width:12px;height:12px;}
-.wc-hash{font-family:'IBM Plex Mono',monospace;font-size:9px;color:var(--muted2);}
-.wc-hash-link{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--gold);text-decoration:none;letter-spacing:.03em;}
+.wc-hash-link{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--gold);text-decoration:none;white-space:nowrap;}
 .wc-hash-link:hover{opacity:.7;}
-.wc-link{font-size:9px;color:var(--gold);text-decoration:none;display:block;margin-top:3px;letter-spacing:.06em;}
-.wc-link:hover{opacity:.7;}
 .wall-cta{padding:22px 0;text-align:center;border-top:1px solid var(--gold);margin-top:6px;}
-.wall-note{font-size:10px;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;margin-bottom:11px;}
-.btn-go{padding:8px 24px;border:1px solid var(--gold);color:var(--gold);background:transparent;font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;font-family:'Inter',sans-serif;cursor:pointer;text-decoration:none;display:inline-block;transition:all .15s;}
-.btn-go:hover{background:var(--gold);color:var(--ink);}
+/* ── CHALLENGE icons ── */
+.ch-icon{width:36px;height:36px;border:1px solid var(--gold);display:flex;align-items:center;justify-content:center;margin-bottom:14px;}
+.ch-icon svg{width:16px;height:16px;color:var(--gold);}
 
 /* ── COMMUNITIES ── */
 .comm-sec{background:var(--bg);}
@@ -145,7 +277,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;background:var(--bg2);border
 .cc-body{position:absolute;bottom:0;left:0;right:0;padding:16px;}
 .cc-oblast{font-size:9px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-bottom:3px;}
 .cc-ms{background:var(--gold);font-family:'Oswald',sans-serif;font-size:10px;font-weight:600;color:var(--ink);padding:1px 6px;display:inline-block;line-height:1.5;margin-bottom:5px;letter-spacing:.06em;text-transform:uppercase;}
-.cc-name{font-family:'Oswald',sans-serif;font-size:17px;font-weight:600;color:#F2F2F0;margin-bottom:4px;letter-spacing:.02em;}
+.cc-name{font-family:'Oswald',sans-serif;font-size:17px;font-weight:600;color:#F2F2F0;margin-bottom:4px;}
 .cc-detail{font-size:10px;color:#C8C8C4;line-height:1.55;}
 .comm-cta-row{text-align:center;padding:20px 32px;border-top:1px solid var(--gold);}
 
@@ -188,9 +320,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;background:var(--bg2);border
 .fsub{width:100%;background:var(--gold);color:var(--ink);padding:12px;font-size:11px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;border:none;cursor:pointer;font-family:'Inter',sans-serif;transition:background .15s;margin-top:4px;}
 .fsub:hover{background:#A07A08;}
 .fnote{font-size:9px;color:var(--muted2);text-align:center;margin-top:6px;line-height:1.5;}
-.success-msg{display:none;text-align:center;padding:40px 20px;}
+.success-msg{display:none;text-align:center;padding:40px 20px;flex-direction:column;align-items:center;}
 .sicon{width:46px;height:46px;border:1px solid var(--gold);display:flex;align-items:center;justify-content:center;margin:0 auto 14px;}
-.sttl{font-family:'Oswald',sans-serif;font-size:22px;font-weight:600;color:var(--ink);letter-spacing:.03em;margin-bottom:6px;}
+.sttl{font-family:'Oswald',sans-serif;font-size:22px;font-weight:600;color:var(--ink);margin-bottom:6px;}
 .stxt{font-size:12px;color:var(--muted);line-height:1.65;}
 
 /* ── ROADMAP ── */
@@ -200,8 +332,10 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;background:var(--bg2);border
 .rmc{padding:24px;border-right:1px solid var(--border);}
 .rmc:last-child{border-right:none;}
 .rm-phase{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:2px;display:flex;align-items:center;gap:6px;}
+.dpulse{width:6px;height:6px;border-radius:50%;background:var(--gold);animation:gpulse 2s infinite;display:inline-block;}
+@keyframes gpulse{0%,100%{opacity:1;}50%{opacity:.3;}}
 .rm-date{font-size:10px;color:var(--muted2);margin-bottom:9px;font-style:italic;}
-.rm-title{font-family:'Oswald',sans-serif;font-size:18px;font-weight:600;color:var(--ink);margin-bottom:11px;letter-spacing:.03em;}
+.rm-title{font-family:'Oswald',sans-serif;font-size:18px;font-weight:600;color:var(--ink);margin-bottom:11px;}
 .rm-items{display:flex;flex-direction:column;gap:6px;}
 .rmi{display:flex;gap:6px;align-items:flex-start;font-size:11px;color:var(--ink2);line-height:1.55;}
 .rmi.done{color:var(--ink);font-weight:500;}
@@ -213,7 +347,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;background:var(--bg2);border
 .cta-overlay{position:absolute;inset:0;background:rgba(10,10,10,.84);}
 .cta-content{position:relative;max-width:1280px;margin:0 auto;padding:80px 32px;text-align:center;}
 .cta-h{font-family:'Oswald',sans-serif;font-size:clamp(40px,7vw,80px);line-height:.95;margin-bottom:18px;color:#F2F2F0;}
-.cta-h .h1g{color:var(--gold);}
 .cta-sub{font-size:14px;color:#A8A8A4;line-height:1.72;margin-bottom:26px;max-width:460px;margin-left:auto;margin-right:auto;}
 .cta-btns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;}
 
@@ -225,9 +358,7 @@ footer{background:var(--dark);padding:40px 32px 20px;border-top:2px solid var(--
 .ft-logo span{color:var(--gold);}
 .ft-desc{font-size:11px;color:var(--muted2);line-height:1.72;max-width:200px;}
 .ft-col h4{font-size:9px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:10px;}
-
 .ft-col a,.ft-col span{display:block;font-size:12px;color:var(--muted2);text-decoration:none;margin-bottom:6px;transition:color .15s;cursor:pointer;}
-
 .ft-col a:hover{color:#F2F2F0;}
 .ft-bot{display:flex;justify-content:space-between;align-items:center;padding-top:16px;flex-wrap:wrap;gap:6px;}
 .ft-copy{font-size:10px;color:var(--muted2);letter-spacing:.08em;text-transform:uppercase;}
@@ -237,51 +368,46 @@ footer{background:var(--dark);padding:40px 32px 20px;border-top:2px solid var(--
 /* ── RESPONSIVE ── */
 @media(max-width:900px){
   .nav-links{display:none;}
-  .burger{display:block;margin-left:auto;}
-  .hero-card{display:none;}
-  .hero-img{min-height:45vh;}
-  .hero{min-height:auto;}
-  .hero-hl,.hero-kicker{padding-left:20px;padding-right:20px;}
-  .hero-below{padding:24px 20px 0;}
-  .h1{font-size:clamp(32px,10vw,56px);}
-  .hero-p{font-size:14px;}
-  .stats{grid-template-columns:1fr 1fr;}
+  .burger{display:block;}
+  .hero-img{height:70vh;min-height:500px;}
+  .h1{font-size:clamp(38px,10vw,64px);}
+  .hero-content{padding:0 20px 36px;}
+  .hero-kicker{left:20px;}
+  .stats-row{grid-template-columns:1fr 1fr;}
   .stat:nth-child(2n){border-right:none;}
   .stat{border-bottom:1px solid var(--border);}
-  .ch-grid,.vsteps{grid-template-columns:1fr;}
-  .wgrid{grid-template-columns:repeat(2,1fr);gap:12px;}
-  .ch-grid{grid-template-columns:1fr;}
-  .ch-col,.vs{border-right:none;border-bottom:1px solid var(--border);}
-  .ch-col:last-child,.vs:last-child{border-bottom:none;}
+  .ch-grid,.vsteps,.rm-grid{grid-template-columns:1fr;}
+  .ch-col,.vs,.rmc{border-right:none;border-bottom:1px solid var(--border);}
+  .ch-col:last-child,.vs:last-child,.rmc:last-child{border-bottom:none;}
   .challenge,.how-sec{padding:48px 20px;}
   .wall-sec,.roadmap-sec{padding:48px 20px 0;}
-  .wgrid{grid-template-columns:1fr;gap:10px;}
+  .wgrid{grid-template-columns:repeat(2,1fr);}
   .comm-hdr{padding:48px 20px 0;}
   .comm-grid{grid-template-columns:1fr 1fr;}
   .dform-in{padding:48px 20px;}
   .dform-grid{grid-template-columns:1fr;}
   .df-r{border-left:none;border-top:1px solid var(--border);}
-  .rm-grid{grid-template-columns:1fr 1fr;}
-  .rmc:nth-child(2){border-right:none;}
-  .rmc:nth-child(3),.rmc:nth-child(4){border-top:1px solid var(--border);}
   .cta-content{padding:56px 20px;}
   footer{padding:32px 20px 18px;}
   .ft-grid{grid-template-columns:1fr 1fr;gap:20px;}
+  .hero-stats-strip{gap:12px;}
+  .hss-item{padding:0 16px 0 0;margin-right:16px;}
 }
 @media(max-width:600px){
-  .stats{grid-template-columns:1fr 1fr;}
+  .hero-img{height:85vh;}
+  .h1{font-size:clamp(26px,8vw,40px);}
+  .hero-btns{flex-direction:column;gap:8px;}
+  .btn-hero-primary,.btn-hero-secondary{text-align:center;justify-content:center;}
+  .hero-stats-strip{display:none;}
+  .stats-row{grid-template-columns:1fr 1fr;}
   .stat{border-right:none;}
-  .stat-n{font-size:28px;}
-  .stat-l{font-size:9px;}
-  .stat-s{font-size:9px;}
+  .wgrid{grid-template-columns:1fr;}
   .comm-grid{grid-template-columns:1fr;}
   .rm-grid{grid-template-columns:1fr;}
   .rmc{border-right:none!important;border-top:1px solid var(--border);}
   .rmc:first-child{border-top:none;}
   .ft-grid{grid-template-columns:1fr 1fr;}
   .f2{grid-template-columns:1fr;}
-  .ft-logo-col{grid-column:1/-1;}
-  .ft-stgeorge{display:none;}
   .cta-btns{flex-direction:column;align-items:center;}
 }
 </style>
@@ -296,10 +422,10 @@ footer{background:var(--dark);padding:40px 32px 20px;border-top:2px solid var(--
       <img src="logo_white.svg" alt="UA Rebuild" style="height:28px;width:auto;filter:invert(1) sepia(1) saturate(2) hue-rotate(5deg) brightness(0.85);" onerror="this.outerHTML='<span class=nav-logo-text><span>UA</span> Rebuild</span>'"/>
     </a>
     <div class="nav-links">
-      <a onclick="goto('#challenge')" href="#"><span class="ua">Проблема</span><span class="en">Challenge</span></a>
-      <button onclick="goto('#wall')"><span class="ua">Стіна відбудовників</span><span class="en">Wall of Rebuilders</span></button>
-      <a onclick="goto('#how')" href="#"><span class="ua">Як це працює</span><span class="en">How it works</span></a>
-      <a href="map.html"><span class="ua">Карта</span><span class="en">Map</span></a>
+      <a class="nav-btn" onclick="goto('#challenge');return false;" href="#challenge"><span class="ua">Проблема</span><span class="en">Challenge</span></a>
+      <a class="nav-btn" onclick="goto('#wall');return false;" href="#wall"><span class="ua">Стіна відбудовників</span><span class="en">Wall of Rebuilders</span></a>
+      <a class="nav-btn" onclick="goto('#how');return false;" href="#how"><span class="ua">Як це працює</span><span class="en">How it works</span></a>
+      <a class="nav-btn" href="map.html"><span class="ua">Карта</span><span class="en">Map</span></a>
     </div>
     <div class="ltog" id="ltog">
       <button class="on" onclick="setLang('ua')">UA</button>
@@ -310,9 +436,9 @@ footer{background:var(--dark);padding:40px 32px 20px;border-top:2px solid var(--
     </button>
   </div>
   <div class="mobnav" id="mobnav">
-    <a onclick="goto('#challenge')" href="#" onclick="toggleNav()"><span class="ua">Проблема</span><span class="en">Challenge</span></a>
-    <button onclick="goto('#wall');toggleNav()" onclick="toggleNav()"><span class="ua">Стіна відбудовників</span><span class="en">Wall of Rebuilders</span></button>
-    <a onclick="goto('#how')" href="#" onclick="toggleNav()"><span class="ua">Як це працює</span><span class="en">How it works</span></a>
+    <a onclick="goto('#challenge');toggleNav();return false;" href="#"><span class="ua">Проблема</span><span class="en">Challenge</span></a>
+    <a onclick="goto('#wall');toggleNav();return false;" href="#"><span class="ua">Стіна відбудовників</span><span class="en">Wall of Rebuilders</span></a>
+    <a onclick="goto('#how');toggleNav();return false;" href="#"><span class="ua">Як це працює</span><span class="en">How it works</span></a>
     <a href="map.html" onclick="toggleNav()"><span class="ua">Карта</span><span class="en">Map</span></a>
   </div>
 </nav>
@@ -326,26 +452,29 @@ footer{background:var(--dark);padding:40px 32px 20px;border-top:2px solid var(--
       <span class="ua">Система публічної пам'яті для України</span>
       <span class="en">Public memory system for Ukraine</span>
     </div>
-    <div class="hero-hl">
+    <!-- All content inside the image, overlaid on gradient -->
+    <div style="position:absolute;bottom:0;left:0;right:0;padding:0 32px 48px;max-width:1312px;margin:0 auto;left:50%;transform:translateX(-50%);width:100%;">
       <div class="h1">
         <span class="ua">УКРАЇНА<br>ПАМ'ЯТАЄ<br><span class="h1g">КОЖЕН</span><br>ВНЕСОК.</span>
         <span class="en">UKRAINE<br>REMEMBERS<br><span class="h1g">EVERY</span><br>CONTRIBUTION.</span>
       </div>
+      <div class="hero-btns">
+        <a class="btn-hero-primary" href="wall.html">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+          <span class="ua">Стіна відбудовників</span><span class="en">Wall of Rebuilders</span>
+        </a>
+        <a class="btn-hero-secondary" href="map.html">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg>
+          <span class="ua">Відкрити карту</span><span class="en">Open Map</span>
+        </a>
+      </div>
+
     </div>
   </div>
-  <div class="hero-below">
-    <div class="hb-in">
-      <p class="hero-p">
-        <span class="ua">Публічний архів внесків у відновлення України. Кожна пожертва, кожна відновлена школа — <strong>записані назавжди, верифіковані на блокчейні.</strong></span>
-        <span class="en">A verified public archive of humanitarian and reconstruction contributions. Every donation, every volunteer effort, every rebuilt school — <strong>permanently recorded, independently verifiable.</strong></span>
-      </p>
-      <div class="hbtns">
-        <a class="btn-g" href="#wall"><span class="ua">Стіна відбудовників</span><span class="en">Wall of Rebuilders</span></a>
-        <a class="btn-o" href="map.html"><span class="ua">Відкрити карту</span><span class="en">Open map</span></a>
-      </div>
-    </div>
-    <!-- Stats -->
-    <div class="stats">
+
+  <!-- Stats below hero image -->
+  <div style="background:var(--bg);">
+    <div class="stats-row">
       <div class="stat">
         <div class="stat-n">9</div>
         <div class="stat-l"><span class="ua">Записів on-chain</span><span class="en">On-chain records</span></div>
@@ -385,17 +514,17 @@ footer{background:var(--dark);padding:40px 32px 20px;border-top:2px solid var(--
     </p>
     <div class="ch-grid">
       <div class="ch-col">
-        <div class="ch-bar"></div>
+        <div class="ch-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
         <div class="ch-ttl"><span class="ua">Архів внесків</span><span class="en">Contribution archive</span></div>
         <p class="ch-txt"><span class="ua">Кожна пожертва, волонтерська акція, відбудований об'єкт — фіксується в єдиному публічному реєстрі. Не звіт. Постійний запис.</span><span class="en">Every donation, volunteer action, rebuilt facility — recorded in one public registry. Not a report. A permanent record.</span></p>
       </div>
       <div class="ch-col">
-        <div class="ch-bar"></div>
+        <div class="ch-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg></div>
         <div class="ch-ttl"><span class="ua">Блокчейн-верифікація</span><span class="en">Blockchain verification</span></div>
         <p class="ch-txt"><span class="ua">Записи верифікуються партнерськими НГО та закріплюються на BNB Chain. Їх неможливо змінити, видалити або фальсифікувати.</span><span class="en">Records are verified by partner NGOs and anchored on BNB Chain. They cannot be altered, deleted, or falsified.</span></p>
       </div>
       <div class="ch-col">
-        <div class="ch-bar"></div>
+        <div class="ch-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
         <div class="ch-ttl"><span class="ua">Пам'ять назавжди</span><span class="en">Memory forever</span></div>
         <p class="ch-txt"><span class="ua">Волонтери, діаспора, міжнародні донори — всі хто допоміг Україні залишаються в публічній пам'яті. Незалежно від того, хто при владі.</span><span class="en">Volunteers, diaspora, international donors — all who helped Ukraine remain in the public record. Regardless of who is in power.</span></p>
       </div>
@@ -418,71 +547,69 @@ footer{background:var(--dark);padding:40px 32px 20px;border-top:2px solid var(--
           <span class="en">Verified contribution on-chain. Not a ranking — a permanent record.</span>
         </p>
       </div>
-      <a href="wall.html" class="btn-o" style="flex-shrink:0;align-self:flex-end;">
-        <span class="ua">Всі відбудовники →</span>
-        <span class="en">All Rebuilders →</span>
-      </a>
     </div>
 
     <div class="wgrid">
-
       <div class="wc">
-        <div class="wc-top">
-          <div class="wc-num">01</div>
-          <div class="wc-tags">
-            <span class="tag">Shelter</span>
-            <span class="tag">Reconstruction</span>
-          </div>
-        </div>
+        <div class="wc-tags"><span class="tag">Shelter</span><span class="tag">Reconstruction</span></div>
         <div class="wc-name">ACTED Ukraine</div>
         <p class="wc-impact"><span class="ua">Відновила 1 200 пошкоджених будинків та утеплила 4 громадські центри в Миколаївській області.</span><span class="en">Restored 1,200 damaged homes and winterized 4 community centers in Mykolaiv region.</span></p>
         <div class="wc-foot">
-          <div class="vbadge">
-            <svg viewBox="0 0 24 24" fill="none"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            <span class="ua">Верифіковано on-chain</span><span class="en">Verified on-chain</span>
+          <div class="wc-foot-row">
+            <div class="vbadge">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span class="ua">Верифіковано on-chain</span><span class="en">Verified on-chain</span>
+            </div>
+            <a class="wc-hash-link" href="https://testnet.bscscan.com/address/0x93f529ad791d7f0fd27ca4091c253b5291947fcd" target="_blank" rel="noopener">0x7b…c114 ↗</a>
           </div>
-          <a class="wc-hash-link" href="https://testnet.bscscan.com/address/0x93f529ad791d7f0fd27ca4091c253b5291947fcd" target="_blank" rel="noopener">0x7b…c114 ↗</a>
         </div>
       </div>
-
       <div class="wc">
-        <div class="wc-top">
-          <div class="wc-num">02</div>
-          <div class="wc-tags">
-            <span class="tag">Displacement</span>
-            <span class="tag">Emergency Aid</span>
-          </div>
-        </div>
+        <div class="wc-tags"><span class="tag">Displacement</span><span class="tag">Emergency Aid</span></div>
         <div class="wc-name">UNHCR Ukraine</div>
         <p class="wc-impact"><span class="ua">Охопила 1,4M внутрішньо переміщених осіб екстреною грошовою допомогою та захистом.</span><span class="en">Reached 1.4M internally displaced persons with emergency cash assistance and protection services.</span></p>
         <div class="wc-foot">
-          <div class="vbadge">
-            <svg viewBox="0 0 24 24" fill="none"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            <span class="ua">Верифіковано on-chain</span><span class="en">Verified on-chain</span>
+          <div class="wc-foot-row">
+            <div class="vbadge">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span class="ua">Верифіковано on-chain</span><span class="en">Verified on-chain</span>
+            </div>
+            <a class="wc-hash-link" href="https://testnet.bscscan.com/address/0x93f529ad791d7f0fd27ca4091c253b5291947fcd" target="_blank" rel="noopener">0x9d…e330 ↗</a>
           </div>
-          <a class="wc-hash-link" href="https://testnet.bscscan.com/address/0x93f529ad791d7f0fd27ca4091c253b5291947fcd" target="_blank" rel="noopener">0x9d…e330 ↗</a>
         </div>
       </div>
-
       <div class="wc">
-        <div class="wc-top">
-          <div class="wc-num">03</div>
-          <div class="wc-tags">
-            <span class="tag">Infrastructure</span>
-            <span class="tag">Education</span>
-          </div>
-        </div>
+        <div class="wc-tags"><span class="tag">Infrastructure</span><span class="tag">Education</span></div>
         <div class="wc-name">Rebuild Ukraine Alliance</div>
         <p class="wc-impact"><span class="ua">Координувала відбудову 18 шкіл та 6 водоочисних станцій у громадах на лінії фронту Донеччини.</span><span class="en">Coordinated reconstruction of 18 schools and 6 water treatment facilities across Donetsk frontline communities.</span></p>
         <div class="wc-foot">
-          <div class="vbadge">
-            <svg viewBox="0 0 24 24" fill="none"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            <span class="ua">Верифіковано on-chain</span><span class="en">Verified on-chain</span>
+          <div class="wc-foot-row">
+            <div class="vbadge">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span class="ua">Верифіковано on-chain</span><span class="en">Verified on-chain</span>
+            </div>
+            <a class="wc-hash-link" href="https://testnet.bscscan.com/address/0x93f529ad791d7f0fd27ca4091c253b5291947fcd" target="_blank" rel="noopener">0x2a…f701 ↗</a>
           </div>
-          <a class="wc-hash-link" href="https://testnet.bscscan.com/address/0x93f529ad791d7f0fd27ca4091c253b5291947fcd" target="_blank" rel="noopener">0x2a…f701 ↗</a>
         </div>
       </div>
+      <div class="wc">
+        <div class="wc-tags"><span class="tag">Food</span><span class="tag">Frontline</span></div>
+        <div class="wc-name">World Central Kitchen</div>
+        <p class="wc-impact"><span class="ua">8,4M порцій їжі роздано у прифронтових громадах. 23 польові кухні активні по всьому сходу України.</span><span class="en">8.4M meals served in frontline communities. 23 field kitchens operational across eastern Ukraine.</span></p>
+        <div class="wc-foot">
+          <div class="wc-foot-row">
+            <div class="vbadge">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span class="ua">Верифіковано on-chain</span><span class="en">Verified on-chain</span>
+            </div>
+            <a class="wc-hash-link" href="https://testnet.bscscan.com/address/0x93f529ad791d7f0fd27ca4091c253b5291947fcd" target="_blank" rel="noopener">0xd5…8e9a ↗</a>
+          </div>
+        </div>
+      </div>
+    </div>
 
+    <div class="wall-cta">
+      <a href="wall.html" class="btn-g"><span class="ua">Переглянути всіх відбудовників →</span><span class="en">View All Rebuilders →</span></a>
     </div>
   </div>
 </section>
@@ -522,7 +649,7 @@ footer{background:var(--dark);padding:40px 32px 20px;border-top:2px solid var(--
         <div class="cc-oblast"><span class="ua">Харківська область</span><span class="en">Kharkiv Oblast</span></div>
         <div class="cc-ms"><span class="ua">ВОДОПОСТАЧАННЯ</span><span class="en">WATER INFRASTRUCTURE</span></div>
         <div class="cc-name"><span class="ua">Ізюм</span><span class="en">Izium</span></div>
-        <div class="cc-detail"><span class="ua">60% відновлено. 3 НГО активні. Ремонт системи опалення тривaє.</span><span class="en">60% restored. 3 NGOs active. Heating system repair ongoing.</span></div>
+        <div class="cc-detail"><span class="ua">60% відновлено. 3 НГО активні.</span><span class="en">60% restored. 3 NGOs active.</span></div>
       </div>
     </div>
     <div class="cc">
@@ -546,11 +673,12 @@ footer{background:var(--dark);padding:40px 32px 20px;border-top:2px solid var(--
         <div class="cc-oblast"><span class="ua">Донецька область</span><span class="en">Donetsk Oblast</span></div>
         <div class="cc-ms"><span class="ua">ЕЛЕКТРОМЕРЕЖА</span><span class="en">POWER GRID</span></div>
         <div class="cc-name"><span class="ua">Велика Новосілка</span><span class="en">Velyka Novosilka</span></div>
-        <div class="cc-detail"><span class="ua">30% відновлено. Високий пріоритет. 4 донорські організації координують зусилля.</span><span class="en">30% restored. High priority. 4 donor organizations coordinating.</span></div>
+        <div class="cc-detail"><span class="ua">30% відновлено. Високий пріоритет.</span><span class="en">30% restored. High priority.</span></div>
       </div>
     </div>
+    <!-- Irpin — residential reconstruction -->
     <div class="cc">
-      <div class="cc-bg" style="background-image:url('https://images.unsplash.com/photo-1486325212027-8081e485255e?w=800&q=80');"></div>
+      <div class="cc-bg" style="background-image:url('https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=800&q=80');"></div>
       <div class="cc-fade"></div>
       <div class="cc-num">05</div>
       <div class="cc-status done"><span class="ua">Відновлено</span><span class="en">Restored</span></div>
@@ -575,7 +703,7 @@ footer{background:var(--dark);padding:40px 32px 20px;border-top:2px solid var(--
     </div>
   </div>
   <div class="comm-cta-row">
-    <a class="btn-go" href="map.html">
+    <a class="btn-g" href="map.html">
       <span class="ua">Відкрити карту громад →</span>
       <span class="en">Open community map →</span>
     </a>
@@ -597,33 +725,25 @@ footer{background:var(--dark);padding:40px 32px 20px;border-top:2px solid var(--
     <div class="vsteps">
       <div class="vs">
         <div class="vs-n"><span class="ua">Крок 01</span><span class="en">Step 01</span></div>
-        <div class="vs-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="color:var(--gold)"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
-        </div>
+        <div class="vs-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="color:var(--gold)"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/></svg></div>
         <div class="vs-ttl"><span class="ua">Внесок подано</span><span class="en">Contribution Submitted</span></div>
         <p class="vs-txt"><span class="ua">Пожертва, волонтерська акція або звіт НГО подається через платформу або систему партнера.</span><span class="en">Donation, volunteer action, or NGO project report submitted through platform or partner system.</span></p>
       </div>
       <div class="vs">
         <div class="vs-n"><span class="ua">Крок 02</span><span class="en">Step 02</span></div>
-        <div class="vs-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="color:var(--gold)"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
-        </div>
+        <div class="vs-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="color:var(--gold)"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg></div>
         <div class="vs-ttl"><span class="ua">Верифіковано партнером</span><span class="en">Verified by Partner</span></div>
         <p class="vs-txt"><span class="ua">НГО, державна структура або партнерська організація підтверджує внесок з доказовою базою.</span><span class="en">NGO, government body, or partner organization validates the contribution with supporting evidence.</span></p>
       </div>
       <div class="vs">
         <div class="vs-n"><span class="ua">Крок 03</span><span class="en">Step 03</span></div>
-        <div class="vs-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="color:var(--gold)"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg>
-        </div>
+        <div class="vs-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="color:var(--gold)"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg></div>
         <div class="vs-ttl"><span class="ua">Записано on-chain</span><span class="en">Recorded On-Chain</span></div>
         <p class="vs-txt"><span class="ua">Хеш верифікації назавжди записується на BNB Chain — незмінно, прозоро, публічно доступно.</span><span class="en">Verification hash permanently recorded on BNB Chain — immutable, transparent, publicly accessible.</span></p>
       </div>
       <div class="vs">
         <div class="vs-n"><span class="ua">Крок 04</span><span class="en">Step 04</span></div>
-        <div class="vs-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="color:var(--gold)"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
-        </div>
+        <div class="vs-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="color:var(--gold)"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg></div>
         <div class="vs-ttl"><span class="ua">Публічний доказ</span><span class="en">Public Proof Appears</span></div>
         <p class="vs-txt"><span class="ua">Верифікований бейдж на Стіні відбудовників. Перевіряється будь-яким журналістом, донором або аудитором.</span><span class="en">Verified badge on the Wall of Rebuilders. Auditable by any journalist, donor, or investigator.</span></p>
       </div>
@@ -634,9 +754,7 @@ footer{background:var(--dark);padding:40px 32px 20px;border-top:2px solid var(--
         <div class="vp-sub"><span class="ua">9 верифікацій · Смарт-контракт:</span><span class="en">9 verifications · Smart contract:</span></div>
         <div class="vp-hash">0x93F529ad791D7F0FD27CA4091c253b5291947fcD</div>
       </div>
-      <a class="btn-go" href="https://testnet.bscscan.com/address/0x93f529ad791d7f0fd27ca4091c253b5291947fcd" target="_blank" rel="noopener">
-        View on BscScan →
-      </a>
+      <a class="btn-g" href="https://testnet.bscscan.com/address/0x93f529ad791d7f0fd27ca4091c253b5291947fcd" target="_blank" rel="noopener">View on BscScan →</a>
     </div>
   </div>
 </section>
@@ -698,7 +816,7 @@ footer{background:var(--dark);padding:40px 32px 20px;border-top:2px solid var(--
             <div class="frow">
               <label class="flbl"><span class="ua">Тип внеску</span><span class="en">Type of contribution</span></label>
               <select class="fsel" name="type">
-                <option value=""><span class="ua">Оберіть…</span><span class="en">Select…</span></option>
+                <option value="">Select…</option>
                 <option value="donation">Donation / Пожертва</option>
                 <option value="volunteer">Volunteering / Волонтерство</option>
                 <option value="ngo">NGO project / Проєкт НГО</option>
@@ -721,14 +839,9 @@ footer{background:var(--dark);padding:40px 32px 20px;border-top:2px solid var(--
           </form>
         </div>
         <div class="success-msg" id="successMsg">
-          <div class="sicon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--gold)"><polyline points="20 6 9 17 4 12"/></svg>
-          </div>
+          <div class="sicon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--gold)"><polyline points="20 6 9 17 4 12"/></svg></div>
           <div class="sttl"><span class="ua">Дякуємо!</span><span class="en">Thank you!</span></div>
-          <p class="stxt">
-            <span class="ua">Ваш внесок отримано. Ми зв'яжемось з вами найближчим часом для верифікації.</span>
-            <span class="en">Your contribution has been received. We will be in touch shortly for verification.</span>
-          </p>
+          <p class="stxt"><span class="ua">Ваш внесок отримано. Ми зв'яжемось з вами найближчим часом для верифікації.</span><span class="en">Your contribution has been received. We will be in touch shortly for verification.</span></p>
         </div>
       </div>
     </div>
@@ -745,26 +858,13 @@ footer{background:var(--dark);padding:40px 32px 20px;border-top:2px solid var(--
     </div>
     <div class="rm-grid">
       <div class="rmc">
-        <div class="rm-phase"><span class="dpulse" style="width:5px;height:5px;border-radius:50%;background:var(--gold);animation:gpulse 2s infinite;display:inline-block;"></span><span class="ua">Зараз</span><span class="en">Live Now</span></div>
+        <div class="rm-phase"><span class="dpulse"></span><span class="ua">Зараз</span><span class="en">Live Now</span></div>
         <div class="rm-date">May 2026 · Pilot</div>
         <div class="rm-title"><span class="ua">Пілот</span><span class="en">Foundation</span></div>
         <div class="rm-items">
-          <div class="rmi done">
-            <svg viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-            <span class="ua">Архітектура системи</span><span class="en">System architecture</span>
-          </div>
-          <div class="rmi done">
-            <svg viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-            <span class="ua">Прототип інтерактивної карти</span><span class="en">Interactive map prototype</span>
-          </div>
-          <div class="rmi done">
-            <svg viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-            <span class="ua">AI аналітика — базовий Q&A</span><span class="en">AI analytics — basic Q&A</span>
-          </div>
-          <div class="rmi done">
-            <svg viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-            BNB Chain · 9 verifications live
-          </div>
+          <div class="rmi done"><svg viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span class="ua">Архітектура системи</span><span class="en">System architecture</span></div>
+          <div class="rmi done"><svg viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span class="ua">Прототип інтерактивної карти</span><span class="en">Interactive map prototype</span></div>
+          <div class="rmi done"><svg viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>BNB Chain · 9 verifications live</div>
         </div>
       </div>
       <div class="rmc">
@@ -772,9 +872,8 @@ footer{background:var(--dark);padding:40px 32px 20px;border-top:2px solid var(--
         <div class="rm-date">Aug 2026</div>
         <div class="rm-title"><span class="ua">Фундамент</span><span class="en">Foundation</span></div>
         <div class="rm-items">
-          <div class="rmi"><svg viewBox="0 0 24 24" fill="none" stroke="var(--border)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/></svg><span class="ua">BNB Chain mainnet deploy</span><span class="en">BNB Chain mainnet deploy</span></div>
+          <div class="rmi"><svg viewBox="0 0 24 24" fill="none" stroke="var(--border)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/></svg>BNB Chain mainnet deploy</div>
           <div class="rmi"><svg viewBox="0 0 24 24" fill="none" stroke="var(--border)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/></svg><span class="ua">30-50 on-chain записів</span><span class="en">30-50 on-chain records</span></div>
-          <div class="rmi"><svg viewBox="0 0 24 24" fill="none" stroke="var(--border)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/></svg><span class="ua">Pipeline верифікації готовий</span><span class="en">Verification pipeline ready</span></div>
           <div class="rmi"><svg viewBox="0 0 24 24" fill="none" stroke="var(--border)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/></svg><span class="ua">Документація для НГО</span><span class="en">NGO onboarding docs</span></div>
         </div>
       </div>
@@ -785,7 +884,7 @@ footer{background:var(--dark);padding:40px 32px 20px;border-top:2px solid var(--
         <div class="rm-items">
           <div class="rmi"><svg viewBox="0 0 24 24" fill="none" stroke="var(--border)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/></svg><span class="ua">100-200 верифікованих записів</span><span class="en">100-200 verified records</span></div>
           <div class="rmi"><svg viewBox="0 0 24 24" fill="none" stroke="var(--border)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/></svg><span class="ua">Перші реальні партнери НГО</span><span class="en">First real NGO partners</span></div>
-          <div class="rmi"><svg viewBox="0 0 24 24" fill="none" stroke="var(--border)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/></svg><span class="ua">ТЗ для автоматизації pipeline</span><span class="en">Automation pipeline spec</span></div>
+          <div class="rmi"><svg viewBox="0 0 24 24" fill="none" stroke="var(--border)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/></svg><span class="ua">Автоматизація pipeline</span><span class="en">Automation pipeline spec</span></div>
         </div>
       </div>
       <div class="rmc">
@@ -795,7 +894,6 @@ footer{background:var(--dark);padding:40px 32px 20px;border-top:2px solid var(--
         <div class="rm-items">
           <div class="rmi"><svg viewBox="0 0 24 24" fill="none" stroke="var(--border)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/></svg><span class="ua">500+ верифікованих записів</span><span class="en">500+ verified records</span></div>
           <div class="rmi"><svg viewBox="0 0 24 24" fill="none" stroke="var(--border)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/></svg><span class="ua">Публічний API для донорів</span><span class="en">Public API for donors</span></div>
-          <div class="rmi"><svg viewBox="0 0 24 24" fill="none" stroke="var(--border)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/></svg><span class="ua">Модель для реплікації</span><span class="en">Replication model documented</span></div>
           <div class="rmi"><svg viewBox="0 0 24 24" fill="none" stroke="var(--border)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/></svg><span class="ua">Інтеграція з держреєстрами</span><span class="en">DREAM registry integration</span></div>
         </div>
       </div>
@@ -817,8 +915,8 @@ footer{background:var(--dark);padding:40px 32px 20px;border-top:2px solid var(--
       <span class="en">Open data. Blockchain verification. A permanent public record — not PDF reports that disappear.</span>
     </p>
     <div class="cta-btns">
-      <a class="btn-g" href="#wall"><span class="ua">Стіна відбудовників</span><span class="en">Wall of Rebuilders</span></a>
-      <a class="btn-o" style="color:rgba(255,255,255,.7);border-color:rgba(255,255,255,.3);" href="map.html"><span class="ua">Відкрити карту</span><span class="en">Open Map</span></a>
+      <a class="btn-g" href="wall.html"><span class="ua">Стіна відбудовників</span><span class="en">Wall of Rebuilders</span></a>
+      <a style="padding:8px 22px;border:1px solid rgba(255,255,255,.3);color:rgba(255,255,255,.7);font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;font-family:'Inter',sans-serif;background:transparent;text-decoration:none;display:inline-block;transition:all .15s;" href="map.html"><span class="ua">Відкрити карту</span><span class="en">Open Map</span></a>
     </div>
   </div>
 </div>
@@ -830,17 +928,17 @@ footer{background:var(--dark);padding:40px 32px 20px;border-top:2px solid var(--
       <div>
         <div class="ft-logo"><span>UA</span> Rebuild</div>
         <p class="ft-desc">
-          <span class="ua">Система публічної пам'яті та верифікації для гуманітарних внесків в Україні. Кожна дія відбудови — назавжди записана.</span>
-          <span class="en">Public memory and verification system for humanitarian contributions in Ukraine. Every act of rebuilding — permanently recorded.</span>
+          <span class="ua">Система публічної пам'яті та верифікації для гуманітарних внесків в Україні.</span>
+          <span class="en">Public memory and verification system for humanitarian contributions in Ukraine.</span>
         </p>
       </div>
       <div class="ft-col">
         <h4><span class="ua">Платформа</span><span class="en">Platform</span></h4>
-        <a href="wall.html" class="ft-link" data-ua="Стіна відбудовників" data-en="Wall of Rebuilders"></a>
-        <a href="map.html" class="ft-link" data-ua="Карта громад" data-en="Community Map"></a>
-        <a onclick="goto('#how')" href="#" class="ft-link" data-ua="Верифікація" data-en="Verification"></a>
+        <a href="wall.html"><span class="ua">Стіна відбудовників</span><span class="en">Wall of Rebuilders</span></a>
+        <a href="map.html"><span class="ua">Карта громад</span><span class="en">Community Map</span></a>
+        <a onclick="goto('#how');return false;" href="#"><span class="ua">Верифікація</span><span class="en">Verification</span></a>
       </div>
-      <div class="ft-stgeorge" style="display:flex;align-items:flex-end;justify-content:center;">
+      <div style="display:flex;align-items:flex-end;justify-content:center;">
         <img src="st-george.svg" alt="" style="height:90px;width:auto;opacity:0.35;filter:brightness(0) invert(1);" onerror="this.style.display='none'"/>
       </div>
       <div class="ft-col">
@@ -853,75 +951,48 @@ footer{background:var(--dark);padding:40px 32px 20px;border-top:2px solid var(--
     </div>
     <div class="ft-bot">
       <div class="ft-copy">© 2026 UA Rebuild · <span class="ua">Всі записи незмінні</span><span class="en">All records immutable</span></div>
-      <div class="ft-chain">
-        <div class="ft-dot"></div>
-        <span class="ua">Верифіковано на</span><span class="en">Verified on</span> BNB Chain
-      </div>
+      <div class="ft-chain"><div class="ft-dot"></div><span class="ua">Верифіковано на</span><span class="en">Verified on</span>&nbsp;BNB Chain</div>
     </div>
   </div>
 </footer>
 
 <script>
-// ── LANG ────────────────────────────────────────────────────
 function setLang(l){
   document.body.classList.toggle('en', l==='en');
   document.querySelectorAll('.ltog button').forEach((b,i)=>b.classList.toggle('on', i===(l==='ua'?0:1)));
-  document.querySelectorAll('.ft-link').forEach(a=>{a.textContent=l==='ua'?a.dataset.ua:a.dataset.en;});
   document.documentElement.lang = l;
   document.title = l==='ua'
     ? 'UA Rebuild — Україна пам\'ятає кожен внесок'
     : 'UA Rebuild — Ukraine Remembers Every Contribution';
 }
-
-// ── SCROLL ─────────────────────────────────────────────────
-function goto(s){const el=document.querySelector(s);if(el){const y=el.getBoundingClientRect().top+window.scrollY-52;window.scrollTo({top:y,behavior:'smooth'});}}
-
-// ── MOBILE NAV ──────────────────────────────────────────────
+function goto(s){
+  const el=document.querySelector(s);
+  if(el){const y=el.getBoundingClientRect().top+window.scrollY-52;window.scrollTo({top:y,behavior:'smooth'});}
+}
 function toggleNav(){
   document.getElementById('mobnav').classList.toggle('open');
 }
-
-// ── FORM ────────────────────────────────────────────────────
 async function submitForm(e){
   e.preventDefault();
-  const form = e.target;
-  const btn = form.querySelector('.fsub');
-  const fd = new FormData(form);
-  btn.disabled = true;
-  btn.textContent = '...';
-  try {
-    const res = await fetch('https://formspree.io/f/xkokbpjy',{
+  const form=e.target;
+  const btn=form.querySelector('.fsub');
+  const fd=new FormData(form);
+  btn.disabled=true;btn.textContent='...';
+  try{
+    const res=await fetch('https://formspree.io/f/xkokbpjy',{
       method:'POST',
       headers:{'Content-Type':'application/json','Accept':'application/json'},
-      body: JSON.stringify({
-        name: fd.get('name'),
-        organization: fd.get('org'),
-        email: fd.get('email'),
-        type: fd.get('type'),
-        description: fd.get('description'),
-      })
+      body:JSON.stringify({name:fd.get('name'),organization:fd.get('org'),email:fd.get('email'),type:fd.get('type'),description:fd.get('description')})
     });
-    if(!res.ok) throw new Error('bad');
-    document.getElementById('joinForm').style.display = 'none';
-    document.getElementById('successMsg').style.display = 'flex';
-  } catch(err){
+    if(!res.ok)throw new Error('bad');
+    document.getElementById('joinForm').style.display='none';
+    document.getElementById('successMsg').style.display='flex';
+  }catch(err){
     alert('Помилка. Спробуйте ще раз.');
-    btn.disabled = false;
-    btn.innerHTML = '<span class="ua">Подати на верифікацію →</span><span class="en">Submit for Verification →</span>';
+    btn.disabled=false;
+    btn.innerHTML='<span class="ua">Подати на верифікацію →</span><span class="en">Submit for Verification →</span>';
   }
 }
-
-// ── SMOOTH SCROLL ───────────────────────────────────────────
-document.querySelectorAll('a[href^="#"]').forEach(a=>{
-  a.addEventListener('click', e=>{
-    const id = a.getAttribute('href').slice(1);
-    const el = document.getElementById(id);
-    if(el){ e.preventDefault(); el.scrollIntoView({behavior:'smooth'}); }
-  });
-});
-
-// Init — UA default, populate ft-links
-document.querySelectorAll('.ft-link').forEach(a=>{a.textContent=a.dataset.ua||''});
 </script>
 </body>
 </html>
