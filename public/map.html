@@ -4,7 +4,7 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>UA Rebuild — Карта відновлення</title>
-<link rel="icon" href="favicon.svg" type="image/svg+xml"/>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
@@ -20,34 +20,42 @@
   --red:#C1121F;--green:#2D6A4F;
   --nav-h:46px;
 }
-html,body{font-family:'Inter',sans-serif;height:100%;overflow:hidden;color:var(--ink);background:var(--bg);margin:0;}
+html,body{font-family:'Inter',sans-serif;height:100%;overflow:hidden;color:var(--ink);background:var(--bg);}
 .en{display:none!important;}.ua{display:inline!important;}
 body.en .en{display:inline!important;}body.en .ua{display:none!important;}
 
-/* NAV — matches landing */
+/* NAV — matches index */
 #nav{
   position:relative;height:var(--nav-h);flex-shrink:0;
   background:var(--bg2);border-bottom:1px solid var(--border);
-  display:flex;align-items:center;padding:0 24px;gap:0;z-index:500;
+  display:flex;align-items:center;padding:0 24px;gap:6px;z-index:500;
 }
 #nav::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--gold);}
 .nav-logo{display:flex;align-items:center;text-decoration:none;margin-right:auto;}
-.nav-links{display:flex;align-items:center;gap:24px;margin-right:16px;}
-.nav-link{font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--ink2);text-decoration:none;background:none;border:none;cursor:pointer;font-family:'Inter',sans-serif;transition:color .15s;padding:0;}
-.nav-link:hover,.nav-link.active{color:var(--gold);}
-.nav-divider{width:1px;height:14px;background:var(--border);margin:0 4px;}
-.live-pill{display:flex;align-items:center;gap:5px;font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);border:1px solid rgba(184,150,12,.4);padding:3px 8px;white-space:nowrap;margin-right:10px;}
+.nav-links{display:flex;align-items:center;gap:6px;margin-right:8px;}
+.nav-btn{
+  padding:5px 14px;
+  font-family:'Inter',sans-serif;
+  font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--muted);text-decoration:none;
+  border:1px solid transparent;background:transparent;
+  cursor:pointer;transition:all .15s;white-space:nowrap;
+  display:inline-flex;align-items:center;
+}
+.nav-btn:hover{color:var(--gold);border-color:var(--gold);}
+.nav-btn.active{color:var(--gold);border-color:var(--gold);}
+.live-pill{display:flex;align-items:center;gap:5px;font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);border:1px solid rgba(184,150,12,.4);padding:3px 8px;white-space:nowrap;margin-right:6px;}
 .live-dot{width:5px;height:5px;border-radius:50%;background:var(--gold);animation:pulse 2s infinite;}
 @keyframes pulse{0%,100%{opacity:1;}50%{opacity:.3;}}
-.layers-btn{display:flex;align-items:center;gap:5px;padding:4px 10px;font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;font-family:'Inter',sans-serif;cursor:pointer;transition:all .15s;margin-right:10px;}
-.layers-btn.open{background:var(--gold);color:var(--ink);border:1px solid var(--gold);}
-.layers-btn.closed{background:transparent;color:var(--muted);border:1px solid var(--border);}
-.lang-tog{display:flex;border:1px solid var(--border);}
+.layers-btn{display:flex;align-items:center;gap:5px;padding:5px 12px;font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;font-family:'Inter',sans-serif;cursor:pointer;transition:all .15s;margin-right:6px;border:1px solid var(--border);}
+.layers-btn.open{background:var(--gold);color:var(--ink);border-color:var(--gold);}
+.layers-btn.closed{background:transparent;color:var(--muted);}
+.lang-tog{display:flex;border:1px solid var(--border);overflow:hidden;}
 .lang-btn{padding:4px 9px;font-size:9px;font-weight:700;letter-spacing:.1em;font-family:'Inter',sans-serif;border:none;background:transparent;color:var(--muted);cursor:pointer;transition:all .15s;}
 .lang-btn.on{background:var(--gold);color:var(--ink);}
 
 /* LAYOUT */
-#wrap{display:flex;height:100vh;padding-top:var(--nav-h);position:relative;box-sizing:border-box;}
+#wrap{display:flex;height:calc(100vh - var(--nav-h));position:relative;}
 
 /* MAP */
 #mapEl{position:absolute;inset:0;z-index:1;}
@@ -159,69 +167,51 @@ body.en .en{display:inline!important;}body.en .ua{display:none!important;}
 
 /* MOBILE */
 @media(max-width:768px){
-  #nav{padding:0 16px;}
-  .nav-links,.nav-divider{display:none;}
-  #panel{width:100%;top:auto;bottom:0;height:50vh;transform:translateY(100%);border-left:none;border-top:1px solid var(--border);}
+  #nav{padding:0 14px;gap:4px;}
+  .nav-links{display:none;}
+  #panel{width:100%;top:auto;bottom:0;height:55vh;transform:translateY(100%);border-left:none;border-top:2px solid var(--gold);}
   #panel.closed{transform:translateY(100%);}
   #panel.open{transform:translateY(0);}
   #panelToggle{display:none;}
   #mobBtn{display:flex!important;}
+  #legend{display:none;}
+  #layerSw{top:8px;left:8px;}
+  .lsw-btn{padding:5px 10px;font-size:9px;}
+  .nav-logo img{height:20px;}
 }
 #mobBtn{display:none;position:absolute;bottom:16px;right:16px;z-index:400;background:var(--gold);color:var(--ink);border:none;padding:10px 16px;font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;font-family:'Inter',sans-serif;cursor:pointer;align-items:center;gap:6px;}
-
-/* ── NAV (shared) ── */
-:root{--nav-h:46px;}
-nav{position:fixed;top:0;left:0;right:0;z-index:500;background:var(--surface,#F4F3F1);border-bottom:1px solid var(--border,#C8C8C4);}
-.nav-gold{height:2px;background:var(--gold,#B8960C);}
-.nav-in{max-width:1280px;margin:0 auto;padding:0 24px;display:flex;align-items:center;height:44px;gap:20px;}
-.nav-logo{display:flex;align-items:center;text-decoration:none;margin-right:auto;}
-.nav-logo img{height:24px;width:auto;}
-.nav-logo-text{font-family:'Oswald',sans-serif;font-size:20px;font-weight:600;letter-spacing:.04em;color:var(--ink,#0A0A0A);}
-.nav-logo-text span{color:var(--gold,#B8960C);}
-.nav-links{display:flex;align-items:center;gap:20px;}
-.nav-links a{font-family:'Inter',sans-serif;font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--muted,#5A5855);text-decoration:none;transition:color .15s;white-space:nowrap;}
-.nav-links a:hover{color:var(--gold,#B8960C);}
-.nav-links a.active{color:var(--gold,#B8960C);}
-.ltog{display:flex;border:1px solid var(--border,#C8C8C4);overflow:hidden;margin-left:4px;}
-.ltog button{padding:4px 9px;font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;font-family:'Inter',sans-serif;border:none;background:transparent;color:var(--muted,#5A5855);cursor:pointer;transition:all .15s;}
-.ltog button.on{background:var(--gold,#B8960C);color:#0A0A0A;}
-.burger{display:none;background:none;border:none;cursor:pointer;padding:4px;flex-shrink:0;}
-.burger span{display:block;width:18px;height:1.5px;background:var(--ink,#0A0A0A);margin:4px 0;}
-.mobnav{display:none;padding:12px 24px;background:var(--surface,#F4F3F1);border-top:1px solid var(--border,#C8C8C4);}
-.mobnav.open{display:block;}
-.mobnav a{display:block;padding:9px 0;font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--ink2,#2A2A2A);text-decoration:none;border-bottom:1px solid var(--border,#C8C8C4);}
-.mobnav a:last-child{border-bottom:none;}
-@media(max-width:768px){.nav-links{display:none;}.burger{display:block;}}
-
 </style>
 </head>
 <body class="ua">
 
-<nav>
-  <div class="nav-gold"></div>
-  <div class="nav-in">
-    <a class="nav-logo" href="index.html">
-      <img src="logo_white.svg" alt="UA Rebuild" style="height:24px;width:auto;filter:brightness(0) saturate(100%);" onerror="this.style.display='none'"/>
-    </a>
-    <div class="nav-links">
-      <a href="index.html#challenge"><span class="ua">Проблема</span><span class="en">Challenge</span></a>
-      <a href="wall.html"><span class="ua">Стіна відбудовників</span><span class="en">Wall of Rebuilders</span></a>
-      <a href="index.html#how"><span class="ua">Як це працює</span><span class="en">How it works</span></a>
-      <a href="map.html" class="active"><span class="ua">Карта</span><span class="en">Map</span></a>
-    </div>
-    <div class="ltog">
-      <button class="on" id="bua" onclick="setLang('ua')">UA</button>
-      <button id="ben" onclick="setLang('en')">EN</button>
-    </div>
-    <button class="burger" onclick="toggleNav()" aria-label="Menu">
-      <span></span><span></span><span></span>
-    </button>
+<nav id="nav">
+  <!-- Inline logo -->
+  <a class="nav-logo" href="index.html">
+    <img src="logo_white.svg" alt="UA Rebuild"
+         style="height:26px;width:auto;"
+         onerror="this.outerHTML='<span style=&quot;font-family:Oswald,sans-serif;font-size:20px;font-weight:600;color:var(--ink);letter-spacing:.04em&quot;><span style=&quot;color:var(--gold)&quot;>UA</span> Rebuild</span>'"/>
+  </a>
+
+  <div class="nav-links">
+    <a href="index.html#challenge" class="nav-btn"><span class="ua">Проблема</span><span class="en">Challenge</span></a>
+    <a href="index.html#wall" class="nav-btn"><span class="ua">Стіна відбудовників</span><span class="en">Wall of Rebuilders</span></a>
+    <a href="index.html#how" class="nav-btn"><span class="ua">Як це працює</span><span class="en">How it works</span></a>
+    <a href="map.html" class="nav-btn active"><span class="ua">Карта</span><span class="en">Map</span></a>
   </div>
-  <div class="mobnav" id="mobnav">
-    <a href="index.html#challenge" onclick="toggleNav()"><span class="ua">Проблема</span><span class="en">Challenge</span></a>
-    <a href="wall.html" onclick="toggleNav()"><span class="ua">Стіна відбудовників</span><span class="en">Wall of Rebuilders</span></a>
-    <a href="index.html#how" onclick="toggleNav()"><span class="ua">Як це працює</span><span class="en">How it works</span></a>
-    <a href="map.html" onclick="toggleNav()"><span class="ua">Карта</span><span class="en">Map</span></a>
+
+  <div class="live-pill">
+    <span class="live-dot"></span>
+    <span>8 <span class="ua">громад</span><span class="en">communities</span></span>
+  </div>
+
+  <button class="layers-btn open" id="layersNavBtn" onclick="togglePanel()">
+    <svg width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
+    <span class="ua">Шари</span><span class="en">Layers</span>
+  </button>
+
+  <div class="lang-tog">
+    <button class="lang-btn on" id="bua" onclick="setLang('ua')">UA</button>
+    <button class="lang-btn" id="ben" onclick="setLang('en')">EN</button>
   </div>
 </nav>
 
@@ -314,7 +304,7 @@ function getColor(c,layer){
   return'#B8960C';
 }
 
-let activeLayer='destruction',selectedId=null,markers={},isUa=true,panelOpen=true;
+let activeLayer='destruction',selectedId=null,markers={},isUa=true,panelOpen=window.innerWidth>768;
 
 const map=L.map('mapEl',{center:[48.5,31.5],zoom:6,zoomControl:true,attributionControl:false});
 L.tileLayer('https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}{r}.png',{subdomains:'abcd',maxZoom:19}).addTo(map);
@@ -404,6 +394,7 @@ function switchTab(tab){
 function setLang(l){
   isUa=l==='ua';
   document.body.className=l;
+  document.documentElement.lang=l;
   document.getElementById('bua').classList.toggle('on',isUa);
   document.getElementById('ben').classList.toggle('on',!isUa);
   document.getElementById('aiInp').placeholder=isUa?'Запитайте про будь-яку громаду...':'Ask about any community...';

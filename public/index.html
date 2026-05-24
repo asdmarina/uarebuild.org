@@ -219,6 +219,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;background:var(--bg2);border
 .stat-a{font-size:10px;color:var(--gold);text-decoration:none;display:block;margin-top:2px;}
 .stat-a:hover{opacity:.7;}
 
+/* ── SCROLL OFFSET for fixed nav ── */
+#challenge,#wall,#how,#join{scroll-margin-top:52px;}
+
 /* ── SHARED ── */
 .sec-lbl{font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;display:flex;align-items:center;gap:10px;}
 .sec-lbl::before{content:'';display:block;width:20px;height:1px;background:var(--gold);}
@@ -236,7 +239,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;background:var(--bg2);border
 .ch-grid{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--gold);}
 .ch-col{padding:26px;border-right:1px solid var(--border);}
 .ch-col:last-child{border-right:none;}
-.ch-bar{width:20px;height:2px;background:var(--gold);margin-bottom:12px;}
 .ch-ttl{font-size:11px;font-weight:700;color:var(--ink);text-transform:uppercase;letter-spacing:.06em;margin-bottom:7px;}
 .ch-txt{font-size:12px;color:var(--ink2);line-height:1.7;}
 
@@ -244,8 +246,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;background:var(--bg2);border
 .wall-sec{padding:72px 32px 0;background:var(--bg2);}
 .wall-sec-in{max-width:1280px;margin:0 auto;}
 .wgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;margin-top:28px;}
-.wc{background:var(--surface);padding:22px;border:1px solid var(--border);border-top:2px solid var(--gold);transition:box-shadow .2s;display:flex;flex-direction:column;}
-.wc:hover{box-shadow:0 4px 20px rgba(0,0,0,.07);}
+.wc{background:var(--surface);padding:22px;border:1px solid var(--border);border-top:2px solid var(--gold);transition:border-color .2s,background .2s;display:flex;flex-direction:column;}
+.wc:hover{border-color:var(--gold);background:#fff;}
 .wc-name{font-family:'Oswald',sans-serif;font-size:20px;font-weight:600;color:var(--ink);margin-bottom:12px;letter-spacing:.01em;line-height:1.1;}
 .wc-tags{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:11px;}
 .tag{font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:2px 7px;border:1px solid rgba(184,150,12,0.5);color:var(--gold);}
@@ -254,8 +256,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;background:var(--bg2);border
 .wc-foot-row{display:flex;align-items:center;justify-content:space-between;gap:8px;}
 .vbadge{display:flex;align-items:center;gap:5px;font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);}
 .vbadge svg{width:12px;height:12px;}
-.wc-hash-link{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--gold);text-decoration:none;white-space:nowrap;}
-.wc-hash-link:hover{opacity:.7;}
+.wc-hash-link{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--gold);text-decoration:none;white-space:nowrap;opacity:.75;transition:opacity .15s;}
+.wc-hash-link:hover{opacity:1;}
 .wall-cta{padding:22px 0;text-align:center;border-top:1px solid var(--gold);margin-top:6px;}
 /* ── CHALLENGE icons ── */
 .ch-icon{width:36px;height:36px;border:1px solid var(--gold);display:flex;align-items:center;justify-content:center;margin-bottom:14px;}
@@ -386,29 +388,35 @@ footer{background:var(--dark);padding:40px 32px 20px;border-top:2px solid var(--
   .comm-grid{grid-template-columns:1fr 1fr;}
   .dform-in{padding:48px 20px;}
   .dform-grid{grid-template-columns:1fr;}
-  .df-r{border-left:none;border-top:1px solid var(--border);}
+  .df-l{padding:28px 24px;}
+  .df-r{border-left:none;border-top:1px solid var(--border);padding:28px 24px;}
   .cta-content{padding:56px 20px;}
   footer{padding:32px 20px 18px;}
   .ft-grid{grid-template-columns:1fr 1fr;gap:20px;}
-  .hero-stats-strip{gap:12px;}
-  .hss-item{padding:0 16px 0 0;margin-right:16px;}
 }
 @media(max-width:600px){
-  .hero-img{height:85vh;}
+  .hero-img{height:88vh;}
   .h1{font-size:clamp(26px,8vw,40px);}
   .hero-btns{flex-direction:column;gap:8px;}
-  .btn-hero-primary,.btn-hero-secondary{text-align:center;justify-content:center;}
-  .hero-stats-strip{display:none;}
+  .btn-hero-primary,.btn-hero-secondary{text-align:center;justify-content:center;width:100%;}
   .stats-row{grid-template-columns:1fr 1fr;}
   .stat{border-right:none;}
+  .stat-n{font-size:32px;}
   .wgrid{grid-template-columns:1fr;}
   .comm-grid{grid-template-columns:1fr;}
   .rm-grid{grid-template-columns:1fr;}
   .rmc{border-right:none!important;border-top:1px solid var(--border);}
   .rmc:first-child{border-top:none;}
-  .ft-grid{grid-template-columns:1fr 1fr;}
+  .ft-grid{grid-template-columns:1fr;}
   .f2{grid-template-columns:1fr;}
-  .cta-btns{flex-direction:column;align-items:center;}
+  .cta-btns{flex-direction:column;align-items:stretch;}
+  .cta-btns .btn-g,.cta-btns a{text-align:center;}
+  .sec-h2{font-size:clamp(28px,8vw,44px);}
+  .df-h{font-size:clamp(24px,7vw,36px);}
+  .nav-btn{padding:5px 10px;font-size:9px;letter-spacing:.08em;}
+  .wfoot{flex-direction:column;align-items:flex-start;}
+  .dform-in{padding:32px 20px;}
+  .submit-section{padding:48px 20px;}
 }
 </style>
 </head>
@@ -676,9 +684,9 @@ footer{background:var(--dark);padding:40px 32px 20px;border-top:2px solid var(--
         <div class="cc-detail"><span class="ua">30% відновлено. Високий пріоритет.</span><span class="en">30% restored. High priority.</span></div>
       </div>
     </div>
-    <!-- Irpin — residential reconstruction -->
+    <!-- Irpin — post-Soviet apartment reconstruction -->
     <div class="cc">
-      <div class="cc-bg" style="background-image:url('https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=800&q=80');"></div>
+      <div class="cc-bg" style="background-image:url('https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800&q=80');"></div>
       <div class="cc-fade"></div>
       <div class="cc-num">05</div>
       <div class="cc-status done"><span class="ua">Відновлено</span><span class="en">Restored</span></div>
@@ -964,6 +972,7 @@ function setLang(l){
   document.title = l==='ua'
     ? 'UA Rebuild — Україна пам\'ятає кожен внесок'
     : 'UA Rebuild — Ukraine Remembers Every Contribution';
+  localStorage.setItem('lang', l);
 }
 function goto(s){
   const el=document.querySelector(s);
@@ -977,7 +986,8 @@ async function submitForm(e){
   const form=e.target;
   const btn=form.querySelector('.fsub');
   const fd=new FormData(form);
-  btn.disabled=true;btn.textContent='...';
+  btn.disabled=true;
+  btn.innerHTML='<span class="ua">Надсилаємо…</span><span class="en">Sending…</span>';
   try{
     const res=await fetch('https://formspree.io/f/xkokbpjy',{
       method:'POST',
@@ -993,6 +1003,11 @@ async function submitForm(e){
     btn.innerHTML='<span class="ua">Подати на верифікацію →</span><span class="en">Submit for Verification →</span>';
   }
 }
+// Init lang from localStorage on every page load
+(function(){
+  const saved = localStorage.getItem('lang') || 'ua';
+  setLang(saved);
+})();
 </script>
 </body>
 </html>
