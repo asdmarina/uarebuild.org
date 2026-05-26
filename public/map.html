@@ -193,7 +193,6 @@ body.en .en{display:inline!important;}body.en .ua{display:none!important;}
 <body class="ua">
 
 <nav id="nav">
-  <!-- Inline logo -->
   <a class="nav-logo" href="index.html">
     <img src="logo_white.svg" alt="UA Rebuild"
          style="height:26px;width:auto;"
@@ -438,11 +437,27 @@ async function sendAI(){
   document.getElementById('aiSugs').style.display='none';
   const typing=addTyping();
   try{
-    const res=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:300,system:buildSystem(),messages:[{role:'user',content:msg}]})});
+    const res=await fetch('https://ua-recovery-chat.uamap.workers.dev',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({
+        model:'llama-3.3-70b-versatile',
+        max_tokens:300,
+        messages:[
+          {role:'system',content:buildSystem()},
+          {role:'user',content:msg}
+        ]
+      })
+    });
     const data=await res.json();
     typing.remove();
-    appendMsg('ai',data.content?.[0]?.text||'Error');
-  }catch(e){typing.remove();appendMsg('ai',isUa?'Помилка з\'єднання.':'Connection error.');}
+    const text=data.choices?.[0]?.message?.content;
+    if(!text)throw new Error('empty');
+    appendMsg('ai',text);
+  }catch(e){
+    typing.remove();
+    appendMsg('ai',isUa?'Помилка з\'єднання. Спробуйте ще раз.':'Connection error. Please try again.');
+  }
   sending=false;document.getElementById('sendBtn').disabled=false;
 }
 
