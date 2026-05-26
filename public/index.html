@@ -972,13 +972,14 @@ footer{background:var(--dark);padding:40px 32px 20px;border-top:2px solid var(--
 
 <script>
 function setLang(l){
-  document.body.classList.toggle('en', l==='en');
-  document.querySelectorAll('.ltog button').forEach((b,i)=>b.classList.toggle('on', i===(l==='ua'?0:1)));
-  document.documentElement.lang = l;
-  document.title = l==='ua'
-    ? 'UA Rebuild — Україна пам\'ятає кожен внесок'
-    : 'UA Rebuild — Ukraine Remembers Every Contribution';
-  localStorage.setItem('lang', l);
+  const isUa=l==='ua';
+  document.body.classList.toggle('en', !isUa);
+  document.querySelectorAll('.ua').forEach(el=>el.style.display=isUa?'inline':'none');
+  document.querySelectorAll('.en').forEach(el=>el.style.display=isUa?'none':'inline');
+  document.querySelectorAll('.ltog button').forEach((b,i)=>b.classList.toggle('on', i===(isUa?0:1)));
+  document.documentElement.lang=l;
+  document.title=isUa?'UA Rebuild — Україна пам\'ятає кожен внесок':'UA Rebuild — Ukraine Remembers Every Contribution';
+  localStorage.setItem('lang',l);
 }
 function goto(s){
   const el=document.querySelector(s);

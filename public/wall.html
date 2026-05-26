@@ -435,10 +435,13 @@ footer{background:var(--dark);padding:28px 24px 18px;border-top:1px solid rgba(1
 
 <script>
 function setLang(l){
+  const isUa=l==='ua';
   document.body.className=l;
-  document.getElementById('bua').classList.toggle('on',l==='ua');
-  document.getElementById('ben').classList.toggle('on',l==='en');
-  document.documentElement.lang = l;
+  document.querySelectorAll('.ua').forEach(el=>el.style.display=isUa?'inline':'none');
+  document.querySelectorAll('.en').forEach(el=>el.style.display=isUa?'none':'inline');
+  document.getElementById('bua').classList.toggle('on',isUa);
+  document.getElementById('ben').classList.toggle('on',!isUa);
+  document.documentElement.lang=l;
   localStorage.setItem('lang',l);
 }
 function filter(cat,btn){
