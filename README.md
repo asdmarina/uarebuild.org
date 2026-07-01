@@ -14,7 +14,7 @@ It combines:
 - **Wall of Rebuilders** — a public honor archive of verified contributors (NGOs, donors, volunteer groups)
 - **Community Recovery Feed** — living recovery stories from 1,673 Ukrainian communities
 - **On-chain verification** — records anchored to BNB Chain, publicly auditable on BscScan
-- **AI-assisted queries** — natural language Q&A over community and contribution data (Claude API)
+- **AI-assisted queries** — natural language Q&A over community and contribution data (Groq API)
 
 The goal: a permanent public record that cannot be revised, deleted, or forgotten.
 
@@ -45,7 +45,7 @@ UA Rebuild is the missing layer on top of existing data sources.
 | Frontend | HTML / CSS / Vanilla JS |
 | Map | Leaflet.js 1.9.4 |
 | Blockchain | BNB Chain (BEP-20 smart contract) |
-| AI | Claude API (Anthropic) — Q&A, analytics, report generation |
+| AI | Groq API (Anthropic) — Q&A, analytics, report generation |
 | Data | OCHA, ACLED, UNHCR, Ukrainian state open datasets |
 | Backend (planned) | Node.js, PostgreSQL |
 | Fonts | Bebas Neue, IBM Plex Mono, Inter (Google Fonts) |
