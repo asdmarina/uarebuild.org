@@ -1,6 +1,6 @@
 # UA Rebuild — Public Recovery & Contribution Memory Layer for Ukraine
 
-**[uarebuild.org](https://uarebuild.org)** · Pilot / May 2026
+**[uarebuild.org](https://uarebuild.org)** · Pilot 
 
 A public system that records, verifies, and archives humanitarian and reconstruction contributions across Ukraine. Every donation, volunteer action, and rebuilt community — permanently recorded and independently verifiable via BNB Chain.
 
@@ -45,7 +45,7 @@ UA Rebuild is the missing layer on top of existing data sources.
 | Frontend | HTML / CSS / Vanilla JS |
 | Map | Leaflet.js 1.9.4 |
 | Blockchain | BNB Chain (BEP-20 smart contract) |
-| AI | Groq API (Anthropic) — Q&A, analytics, report generation |
+| AI | Groq API (LLaMA) — Q&A, community data analytics |
 | Data | OCHA, ACLED, UNHCR, Ukrainian state open datasets |
 | Backend (planned) | Node.js, PostgreSQL |
 | Fonts | Bebas Neue, IBM Plex Mono, Inter (Google Fonts) |
