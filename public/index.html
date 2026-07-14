@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>UA Rebuild — Україна пам'ятає кожен внесок</title>
-<meta name="description" content="Публічний архів внесків у відновлення України. Кожна пожертва, кожна відновлена школа — записані назавжди, верифіковані на блокчейні."/>
-<meta property="og:title" content="UA Rebuild — Україна пам'ятає кожен внесок"/>
-<meta property="og:description" content="Публічний блокчейн-реєстр верифікованих внесків у відновлення України. Незмінно. Публічно."/>
+<title>UA Rebuild — Open Registry of Ukraine Recovery</title>
+<meta name="description" content="UA Rebuild is an open registry of verified recovery projects, organizations, and community progress across Ukraine — structured data you can explore, verify, and reuse."/>
+<meta property="og:title" content="UA Rebuild — Open Registry of Ukraine Recovery"/>
+<meta property="og:description" content="One open registry of verified recovery results across Ukraine. Not scattered reports — structured data you can explore and trust."/>
 <meta property="og:type" content="website"/>
 <meta property="og:url" content="https://uarebuild.org"/>
 <meta name="robots" content="index, follow"/>
@@ -25,198 +25,49 @@
 }
 html{font-family:'Inter',sans-serif;color:var(--ink);scroll-behavior:smooth;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;}
 body{background:var(--bg);overflow-x:hidden;}
-
-/* ── LANG ── */
 .en{display:none;}.ua{display:inline;}
 body.en .en{display:inline;}body.en .ua{display:none;}
 body.en .en-b{display:block;}body.en .ua-b{display:none;}
 .ua-b{display:block;}.en-b{display:none;}
-
-/* ── NAV ── */
 nav{position:fixed;top:0;left:0;right:0;z-index:200;background:var(--bg2);border-bottom:1px solid var(--border);}
 .nav-gold{height:2px;background:var(--gold);}
 .nav-in{max-width:1280px;margin:0 auto;padding:0 24px;display:flex;align-items:center;height:44px;gap:8px;}
 .nav-logo{display:flex;align-items:center;text-decoration:none;margin-right:auto;}
 .nav-logo-text{font-family:'Oswald',sans-serif;font-size:22px;letter-spacing:.04em;color:var(--ink);font-weight:600;}
 .nav-logo-text span{color:var(--gold);}
-
-/* Nav links — all consistent gold-bordered style */
 .nav-links{display:flex;align-items:center;gap:6px;}
-.nav-btn{
-  padding:5px 14px;
-  font-family:'Inter',sans-serif;
-  font-size:10px;
-  font-weight:700;
-  letter-spacing:.12em;
-  text-transform:uppercase;
-  color:var(--muted);
-  text-decoration:none;
-  border:1px solid transparent;
-  background:transparent;
-  cursor:pointer;
-  transition:all .15s;
-  white-space:nowrap;
-  display:inline-flex;
-  align-items:center;
-}
+.nav-btn{padding:5px 14px;font-family:'Inter',sans-serif;font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);text-decoration:none;border:1px solid transparent;background:transparent;cursor:pointer;transition:all .15s;white-space:nowrap;display:inline-flex;align-items:center;}
 .nav-btn:hover{color:var(--gold);border-color:var(--gold);}
 .nav-btn.active{color:var(--gold);border-color:var(--gold);}
-
 .ltog{display:flex;border:1px solid var(--border);overflow:hidden;margin-left:8px;}
 .ltog button{padding:4px 9px;font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;font-family:'Inter',sans-serif;border:none;background:transparent;color:var(--muted);cursor:pointer;transition:all .15s;}
 .ltog button.on{background:var(--gold);color:var(--ink);}
-
 .burger{display:none;background:none;border:none;cursor:pointer;padding:4px;margin-left:auto;}
 .burger span{display:block;width:18px;height:1.5px;background:var(--ink);margin:4px 0;}
 .mobnav{display:none;padding:14px 24px;background:var(--bg2);border-top:1px solid var(--border);}
 .mobnav.open{display:block;}
 .mobnav a,.mobnav button{display:block;width:100%;text-align:left;padding:9px 0;font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--ink2);background:none;border:none;border-bottom:1px solid var(--border);cursor:pointer;font-family:'Inter',sans-serif;text-decoration:none;}
 .mobnav a:last-child,.mobnav button:last-child{border-bottom:none;}
-
-/* ── HERO ── */
 .hero{margin-top:0;padding-top:46px;position:relative;}
-
-/* Full-viewport hero image */
-.hero-img{
-  position:relative;
-  height:100vh;
-  min-height:600px;
-  overflow:hidden;
-}
-.hero-bg{
-  position:absolute;
-  inset:0;
-  background-image:url('hero.jpg');
-  background-size:cover;
-  background-position:center 40%;
-}
-/* Deep gradient: dark at bottom, fades to transparent at top, slight darkening at top for text */
-.hero-fade{
-  position:absolute;
-  inset:0;
-  background:
-    linear-gradient(to bottom, rgba(10,10,8,0.45) 0%, transparent 20%),
-    linear-gradient(to top, rgba(10,10,8,0.97) 0%, rgba(10,10,8,0.75) 20%, rgba(10,10,8,0.3) 50%, transparent 75%);
-}
-
-.hero-kicker{
-  position:absolute;
-  top:24px;
-  left:32px;
-  font-size:10px;
-  font-weight:600;
-  letter-spacing:.2em;
-  text-transform:uppercase;
-  color:rgba(255,255,255,0.75);
-}
-
-/* Hero content — full bottom of image */
-.hero-content{
-  position:absolute;
-  bottom:0;
-  left:0;
-  right:0;
-  padding:0 32px 48px;
-  max-width:1280px;
-  margin:0 auto;
-  /* keep left-aligned */
-  left:0;right:0;
-}
-
-.h1{
-  font-family:'Oswald',sans-serif;
-  font-weight:700;
-  line-height:.93;
-  color:#F4F2EE;
-  font-size:clamp(32px,5vw,68px);
-  letter-spacing:-.01em;
-  margin-bottom:24px;
-}
+.hero-img{position:relative;height:100vh;min-height:600px;overflow:hidden;}
+.hero-bg{position:absolute;inset:0;background-image:url('hero.jpg');background-size:cover;background-position:center 40%;}
+.hero-fade{position:absolute;inset:0;background:linear-gradient(to bottom, rgba(10,10,8,0.45) 0%, transparent 20%),linear-gradient(to top, rgba(10,10,8,0.97) 0%, rgba(10,10,8,0.75) 20%, rgba(10,10,8,0.3) 50%, transparent 75%);}
+.hero-kicker{position:absolute;top:24px;left:32px;font-size:10px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,0.75);}
+.hero-content{position:absolute;bottom:0;left:0;right:0;padding:0 32px 48px;max-width:1280px;margin:0 auto;left:0;right:0;}
+.h1{font-family:'Oswald',sans-serif;font-weight:700;line-height:.93;color:#F4F2EE;font-size:clamp(32px,5vw,68px);letter-spacing:-.01em;margin-bottom:24px;}
 .h1g{color:var(--gold);}
-
-/* Two CTA buttons below headline */
-.hero-btns{
-  display:flex;
-  gap:10px;
-  flex-wrap:wrap;
-  margin-bottom:40px;
-}
-.btn-hero-primary{
-  padding:12px 28px;
-  background:var(--gold);
-  color:var(--ink);
-  font-size:11px;
-  font-weight:700;
-  letter-spacing:.14em;
-  text-transform:uppercase;
-  font-family:'Inter',sans-serif;
-  border:none;
-  cursor:pointer;
-  text-decoration:none;
-  display:inline-flex;
-  align-items:center;
-  gap:8px;
-  transition:background .15s;
-}
+.hero-desc{font-size:14px;color:rgba(242,242,240,0.82);line-height:1.7;max-width:480px;margin-bottom:26px;}
+.hero-btns{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:40px;}
+.btn-hero-primary{padding:12px 28px;background:var(--gold);color:var(--ink);font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;font-family:'Inter',sans-serif;border:none;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:background .15s;}
 .btn-hero-primary:hover{background:#A07A08;}
-.btn-hero-secondary{
-  padding:12px 28px;
-  border:1px solid rgba(255,255,255,.45);
-  color:rgba(255,255,255,.85);
-  font-size:11px;
-  font-weight:700;
-  letter-spacing:.14em;
-  text-transform:uppercase;
-  font-family:'Inter',sans-serif;
-  background:transparent;
-  cursor:pointer;
-  text-decoration:none;
-  display:inline-flex;
-  align-items:center;
-  gap:8px;
-  transition:all .15s;
-}
+.btn-hero-secondary{padding:12px 28px;border:1px solid rgba(255,255,255,.45);color:rgba(255,255,255,.85);font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;font-family:'Inter',sans-serif;background:transparent;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:all .15s;}
 .btn-hero-secondary:hover{border-color:var(--gold);color:var(--gold);}
-
-/* Inline stats strip at bottom of hero */
-.hero-stats-strip{
-  display:flex;
-  gap:0;
-  border-top:1px solid rgba(255,255,255,.15);
-  padding-top:20px;
-  flex-wrap:wrap;
-}
-.hss-item{
-  padding:0 28px 0 0;
-  margin-right:28px;
-  border-right:1px solid rgba(255,255,255,.12);
-}
+.hero-stats-strip{display:flex;gap:0;border-top:1px solid rgba(255,255,255,.15);padding-top:20px;flex-wrap:wrap;}
+.hss-item{padding:0 28px 0 0;margin-right:28px;border-right:1px solid rgba(255,255,255,.12);}
 .hss-item:last-child{border-right:none;}
-.hss-n{
-  font-family:'Oswald',sans-serif;
-  font-size:28px;
-  font-weight:700;
-  color:var(--gold);
-  line-height:1;
-  margin-bottom:2px;
-}
-.hss-l{
-  font-size:9px;
-  font-weight:600;
-  letter-spacing:.12em;
-  text-transform:uppercase;
-  color:rgba(255,255,255,.5);
-}
-
-/* ── STATS (below hero) ── */
-.stats-row{
-  max-width:1280px;
-  margin:0 auto;
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  border-top:2px solid var(--gold);
-  border-bottom:1px solid var(--border);
-}
+.hss-n{font-family:'Oswald',sans-serif;font-size:28px;font-weight:700;color:var(--gold);line-height:1;margin-bottom:2px;}
+.hss-l{font-size:9px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.5);}
+.stats-row{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);border-top:2px solid var(--gold);border-bottom:1px solid var(--border);}
 .stat{padding:20px 22px;border-right:1px solid var(--border);}
 .stat:last-child{border-right:none;}
 .stat-n{font-family:'Oswald',sans-serif;font-size:40px;font-weight:700;color:var(--ink);line-height:1;margin-bottom:3px;}
@@ -224,11 +75,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;background:var(--bg2);border
 .stat-s{font-size:10px;color:var(--muted2);}
 .stat-a{font-size:10px;color:var(--gold);text-decoration:none;display:block;margin-top:2px;}
 .stat-a:hover{opacity:.7;}
-
-/* ── SCROLL OFFSET for fixed nav ── */
 #challenge,#wall,#how,#join{scroll-margin-top:52px;}
-
-/* ── SHARED ── */
 .sec-lbl{font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;display:flex;align-items:center;gap:10px;}
 .sec-lbl::before{content:'';display:block;width:20px;height:1px;background:var(--gold);}
 .sec-h2{font-family:'Oswald',sans-serif;font-size:clamp(32px,5vw,64px);font-weight:700;line-height:1.0;margin-bottom:14px;}
@@ -237,8 +84,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;background:var(--bg2);border
 .btn-g:hover{background:#A07A08;}
 .btn-o{padding:8px 22px;border:1px solid var(--border);color:var(--muted);font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;background:transparent;cursor:pointer;font-family:'Inter',sans-serif;text-decoration:none;display:inline-block;transition:all .15s;}
 .btn-o:hover{border-color:var(--gold);color:var(--gold);}
-
-/* ── CHALLENGE ── */
 .challenge{padding:72px 32px;background:var(--surface);}
 .ch-in{max-width:1280px;margin:0 auto;}
 .ch-tag{font-size:16px;font-weight:500;color:var(--ink2);margin-bottom:30px;max-width:520px;line-height:1.6;}
@@ -247,8 +92,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;background:var(--bg2);border
 .ch-col:last-child{border-right:none;}
 .ch-ttl{font-size:11px;font-weight:700;color:var(--ink);text-transform:uppercase;letter-spacing:.06em;margin-bottom:7px;}
 .ch-txt{font-size:12px;color:var(--ink2);line-height:1.7;}
-
-/* ── WALL ── */
 .wall-sec{padding:72px 32px 0;background:var(--bg2);}
 .wall-sec-in{max-width:1280px;margin:0 auto;}
 .wgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;margin-top:28px;}
@@ -265,11 +108,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;background:var(--bg2);border
 .wc-hash-link{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--gold);text-decoration:none;white-space:nowrap;opacity:.75;transition:opacity .15s;}
 .wc-hash-link:hover{opacity:1;}
 .wall-cta{padding:22px 0;text-align:center;border-top:1px solid var(--gold);margin-top:6px;}
-/* ── CHALLENGE icons ── */
 .ch-icon{width:36px;height:36px;border:1px solid var(--gold);display:flex;align-items:center;justify-content:center;margin-bottom:14px;}
 .ch-icon svg{width:16px;height:16px;color:var(--gold);}
-
-/* ── COMMUNITIES ── */
 .comm-sec{background:var(--bg);}
 .comm-hdr{max-width:1280px;margin:0 auto;padding:72px 32px 0;}
 .comm-grid{display:grid;grid-template-columns:repeat(3,1fr);}
@@ -288,8 +128,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;background:var(--bg2);border
 .cc-name{font-family:'Oswald',sans-serif;font-size:17px;font-weight:600;color:#F2F2F0;margin-bottom:4px;}
 .cc-detail{font-size:10px;color:#C8C8C4;line-height:1.55;}
 .comm-cta-row{text-align:center;padding:20px 32px;border-top:1px solid var(--gold);}
-
-/* ── HOW ── */
 .how-sec{padding:72px 32px;background:var(--surface);}
 .how-in{max-width:1280px;margin:0 auto;}
 .vsteps{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--gold);margin-top:28px;}
@@ -304,8 +142,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;background:var(--bg2);border
 .vp-lbl{font-size:10px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-bottom:2px;}
 .vp-sub{font-size:12px;color:var(--ink2);}
 .vp-hash{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--gold);}
-
-/* ── FORM ── */
 .dform{background:var(--bg2);}
 .dform-in{max-width:1280px;margin:0 auto;padding:72px 32px;}
 .dform-grid{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--border);}
@@ -332,8 +168,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;background:var(--bg2);border
 .sicon{width:46px;height:46px;border:1px solid var(--gold);display:flex;align-items:center;justify-content:center;margin:0 auto 14px;}
 .sttl{font-family:'Oswald',sans-serif;font-size:22px;font-weight:600;color:var(--ink);margin-bottom:6px;}
 .stxt{font-size:12px;color:var(--muted);line-height:1.65;}
-
-/* ── ROADMAP ── */
 .roadmap-sec{padding:72px 32px 0;background:var(--bg);}
 .rm-in{max-width:1280px;margin:0 auto;}
 .rm-grid{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--gold);margin-top:28px;}
@@ -348,8 +182,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;background:var(--bg2);border
 .rmi{display:flex;gap:6px;align-items:flex-start;font-size:11px;color:var(--ink2);line-height:1.55;}
 .rmi.done{color:var(--ink);font-weight:500;}
 .rmi svg{width:12px;height:12px;flex-shrink:0;margin-top:1px;}
-
-/* ── CTA DARK ── */
 .cta-dark{position:relative;overflow:hidden;margin-top:48px;}
 .cta-bg-img{position:absolute;inset:0;background-image:url('alice-kotlyarenko-urt5o3L9gNo-unsplash.jpg');background-size:cover;background-position:center 30%;}
 .cta-overlay{position:absolute;inset:0;background:rgba(10,10,10,.84);}
@@ -357,8 +189,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;background:var(--bg2);border
 .cta-h{font-family:'Oswald',sans-serif;font-size:clamp(40px,7vw,80px);line-height:.95;margin-bottom:18px;color:#F2F2F0;}
 .cta-sub{font-size:14px;color:#A8A8A4;line-height:1.72;margin-bottom:26px;max-width:460px;margin-left:auto;margin-right:auto;}
 .cta-btns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;}
-
-/* ── FOOTER ── */
 footer{background:var(--dark);padding:40px 32px 20px;border-top:2px solid var(--gold);}
 .ft-in{max-width:1280px;margin:0 auto;}
 .ft-grid{display:grid;grid-template-columns:240px 1fr 1fr auto;gap:32px;padding-bottom:22px;border-bottom:1px solid rgba(255,255,255,.07);}
@@ -372,8 +202,6 @@ footer{background:var(--dark);padding:40px 32px 20px;border-top:2px solid var(--
 .ft-copy{font-size:10px;color:var(--muted2);letter-spacing:.08em;text-transform:uppercase;}
 .ft-chain{display:flex;align-items:center;gap:6px;font-size:10px;color:var(--muted2);letter-spacing:.08em;text-transform:uppercase;}
 .ft-dot{width:5px;height:5px;background:var(--gold);}
-
-/* ── RESPONSIVE ── */
 @media(max-width:900px){
   .nav-links{display:none;}
   .burger{display:block;}
@@ -428,7 +256,6 @@ footer{background:var(--dark);padding:40px 32px 20px;border-top:2px solid var(--
 </head>
 <body class="ua">
 
-<!-- NAV -->
 <nav>
   <div class="nav-gold"></div>
   <div class="nav-in">
@@ -457,36 +284,36 @@ footer{background:var(--dark);padding:40px 32px 20px;border-top:2px solid var(--
   </div>
 </nav>
 
-<!-- HERO -->
 <div class="hero">
   <div class="hero-img">
     <div class="hero-bg"></div>
     <div class="hero-fade"></div>
     <div class="hero-kicker">
-      <span class="ua">Система публічної пам'яті для України</span>
-      <span class="en">Public memory system for Ukraine</span>
+      <span class="ua">Відкритий реєстр відновлення України</span>
+      <span class="en">Open Registry of Ukraine Recovery</span>
     </div>
-    <!-- All content inside the image, overlaid on gradient -->
     <div style="position:absolute;bottom:0;left:0;right:0;padding:0 32px 48px;max-width:1312px;margin:0 auto;left:50%;transform:translateX(-50%);width:100%;">
       <div class="h1">
-        <span class="ua">УКРАЇНА<br>ПАМ'ЯТАЄ<br><span class="h1g">КОЖЕН</span><br>ВНЕСОК.</span>
-        <span class="en">UKRAINE<br>REMEMBERS<br><span class="h1g">EVERY</span><br>CONTRIBUTION.</span>
+        <span class="ua">ЄДИНИЙ<br>РЕЄСТР<br><span class="h1g">ВЕРИФІКОВАНИХ</span><br>РЕЗУЛЬТАТІВ.</span>
+        <span class="en">ONE REGISTRY.<br><span class="h1g">VERIFIED</span><br>RECOVERY<br>RESULTS.</span>
       </div>
+      <p class="hero-desc">
+        <span class="ua">UA Rebuild об'єднує перевірені дані про проєкти відновлення, організації та громади в одному відкритому реєстрі. Не звіти, а структуровані дані, які можна перевірити, дослідити та використовувати.</span>
+        <span class="en">UA Rebuild brings verified recovery projects, organizations, and community progress into one open registry. Not scattered reports, but structured data that can be explored, verified, and reused.</span>
+      </p>
       <div class="hero-btns">
         <a class="btn-hero-primary" href="wall.html">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
-          <span class="ua">Стіна відбудовників</span><span class="en">Wall of Rebuilders</span>
+          <span class="ua">Організації</span><span class="en">Verified Organizations</span>
         </a>
         <a class="btn-hero-secondary" href="map.html">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg>
-          <span class="ua">Відкрити карту</span><span class="en">Open Map</span>
+          <span class="ua">Карта відновлення</span><span class="en">Recovery Map</span>
         </a>
       </div>
-
     </div>
   </div>
 
-  <!-- Stats below hero image -->
   <div style="background:var(--bg);">
     <div class="stats-row">
       <div class="stat">
@@ -514,7 +341,6 @@ footer{background:var(--dark);padding:40px 32px 20px;border-top:2px solid var(--
   </div>
 </div>
 
-<!-- CHALLENGE -->
 <section class="challenge" id="challenge">
   <div class="ch-in">
     <div class="sec-lbl"><span class="ua">Проблема</span><span class="en">The Challenge</span></div>
@@ -546,7 +372,6 @@ footer{background:var(--dark);padding:40px 32px 20px;border-top:2px solid var(--
   </div>
 </section>
 
-<!-- WALL OF REBUILDERS -->
 <section class="wall-sec" id="wall">
   <div class="wall-sec-in">
     <div style="display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:16px;margin-bottom:40px;">
@@ -628,7 +453,6 @@ footer{background:var(--dark);padding:40px 32px 20px;border-top:2px solid var(--
   </div>
 </section>
 
-<!-- COMMUNITIES -->
 <section class="comm-sec">
   <div class="comm-hdr">
     <div class="sec-lbl"><span class="ua">Жива пам'ять</span><span class="en">Living Memory</span></div>
@@ -690,7 +514,6 @@ footer{background:var(--dark);padding:40px 32px 20px;border-top:2px solid var(--
         <div class="cc-detail"><span class="ua">30% відновлено. Високий пріоритет.</span><span class="en">30% restored. High priority.</span></div>
       </div>
     </div>
-    <!-- Irpin — post-Soviet apartment reconstruction -->
     <div class="cc">
       <div class="cc-bg" style="background-image:url('https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800&q=80');"></div>
       <div class="cc-fade"></div>
@@ -724,7 +547,6 @@ footer{background:var(--dark);padding:40px 32px 20px;border-top:2px solid var(--
   </div>
 </section>
 
-<!-- HOW IT WORKS -->
 <section class="how-sec" id="how">
   <div class="how-in">
     <div class="sec-lbl"><span class="ua">Як це працює</span><span class="en">How it works</span></div>
@@ -773,7 +595,6 @@ footer{background:var(--dark);padding:40px 32px 20px;border-top:2px solid var(--
   </div>
 </section>
 
-<!-- JOIN FORM -->
 <section class="dform" id="join">
   <div class="dform-in">
     <div class="dform-grid">
@@ -862,7 +683,6 @@ footer{background:var(--dark);padding:40px 32px 20px;border-top:2px solid var(--
   </div>
 </section>
 
-<!-- ROADMAP -->
 <section class="roadmap-sec">
   <div class="rm-in">
     <div class="sec-lbl"><span class="ua">Дорожня карта</span><span class="en">Development Roadmap</span></div>
@@ -915,7 +735,6 @@ footer{background:var(--dark);padding:40px 32px 20px;border-top:2px solid var(--
   </div>
 </section>
 
-<!-- CTA -->
 <div class="cta-dark">
   <div class="cta-bg-img"></div>
   <div class="cta-overlay"></div>
@@ -935,7 +754,6 @@ footer{background:var(--dark);padding:40px 32px 20px;border-top:2px solid var(--
   </div>
 </div>
 
-<!-- FOOTER -->
 <footer>
   <div class="ft-in">
     <div class="ft-grid">
@@ -1010,7 +828,6 @@ async function submitForm(e){
     btn.innerHTML='<span class="ua">Подати на верифікацію →</span><span class="en">Submit for Verification →</span>';
   }
 }
-// Init lang from localStorage on every page load
 (function(){
   const saved = localStorage.getItem('lang') || 'ua';
   setLang(saved);
