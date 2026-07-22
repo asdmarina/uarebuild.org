@@ -25,49 +25,206 @@
 }
 html{font-family:'Inter',sans-serif;color:var(--ink);scroll-behavior:smooth;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;}
 body{background:var(--bg);overflow-x:hidden;}
+
+/* ── LANG ── */
 .en{display:none;}.ua{display:inline;}
 body.en .en{display:inline;}body.en .ua{display:none;}
 body.en .en-b{display:block;}body.en .ua-b{display:none;}
 .ua-b{display:block;}.en-b{display:none;}
+
+/* ── NAV ── */
 nav{position:fixed;top:0;left:0;right:0;z-index:200;background:var(--bg2);border-bottom:1px solid var(--border);}
 .nav-gold{height:2px;background:var(--gold);}
 .nav-in{max-width:1280px;margin:0 auto;padding:0 24px;display:flex;align-items:center;height:44px;gap:8px;}
 .nav-logo{display:flex;align-items:center;text-decoration:none;margin-right:auto;}
 .nav-logo-text{font-family:'Oswald',sans-serif;font-size:22px;letter-spacing:.04em;color:var(--ink);font-weight:600;}
 .nav-logo-text span{color:var(--gold);}
+
+/* Nav links — all consistent gold-bordered style */
 .nav-links{display:flex;align-items:center;gap:6px;}
-.nav-btn{padding:5px 14px;font-family:'Inter',sans-serif;font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);text-decoration:none;border:1px solid transparent;background:transparent;cursor:pointer;transition:all .15s;white-space:nowrap;display:inline-flex;align-items:center;}
+.nav-btn{
+  padding:5px 14px;
+  font-family:'Inter',sans-serif;
+  font-size:10px;
+  font-weight:700;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:var(--muted);
+  text-decoration:none;
+  border:1px solid transparent;
+  background:transparent;
+  cursor:pointer;
+  transition:all .15s;
+  white-space:nowrap;
+  display:inline-flex;
+  align-items:center;
+}
 .nav-btn:hover{color:var(--gold);border-color:var(--gold);}
 .nav-btn.active{color:var(--gold);border-color:var(--gold);}
+
 .ltog{display:flex;border:1px solid var(--border);overflow:hidden;margin-left:8px;}
 .ltog button{padding:4px 9px;font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;font-family:'Inter',sans-serif;border:none;background:transparent;color:var(--muted);cursor:pointer;transition:all .15s;}
 .ltog button.on{background:var(--gold);color:var(--ink);}
+
 .burger{display:none;background:none;border:none;cursor:pointer;padding:4px;margin-left:auto;}
 .burger span{display:block;width:18px;height:1.5px;background:var(--ink);margin:4px 0;}
 .mobnav{display:none;padding:14px 24px;background:var(--bg2);border-top:1px solid var(--border);}
 .mobnav.open{display:block;}
 .mobnav a,.mobnav button{display:block;width:100%;text-align:left;padding:9px 0;font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--ink2);background:none;border:none;border-bottom:1px solid var(--border);cursor:pointer;font-family:'Inter',sans-serif;text-decoration:none;}
 .mobnav a:last-child,.mobnav button:last-child{border-bottom:none;}
+
+/* ── HERO ── */
 .hero{margin-top:0;padding-top:46px;position:relative;}
-.hero-img{position:relative;height:100vh;min-height:600px;overflow:hidden;}
-.hero-bg{position:absolute;inset:0;background-image:url('hero.jpg');background-size:cover;background-position:center 40%;}
-.hero-fade{position:absolute;inset:0;background:linear-gradient(to bottom, rgba(10,10,8,0.45) 0%, transparent 20%),linear-gradient(to top, rgba(10,10,8,0.97) 0%, rgba(10,10,8,0.75) 20%, rgba(10,10,8,0.3) 50%, transparent 75%);}
-.hero-kicker{position:absolute;top:24px;left:32px;font-size:10px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,0.75);}
-.hero-content{position:absolute;bottom:0;left:0;right:0;padding:0 32px 48px;max-width:1280px;margin:0 auto;left:0;right:0;}
-.h1{font-family:'Oswald',sans-serif;font-weight:700;line-height:.93;color:#F4F2EE;font-size:clamp(32px,5vw,68px);letter-spacing:-.01em;margin-bottom:24px;}
+
+/* Full-viewport hero image */
+.hero-img{
+  position:relative;
+  height:100vh;
+  min-height:600px;
+  overflow:hidden;
+}
+.hero-bg{
+  position:absolute;
+  inset:0;
+  background-image:url('hero.jpg');
+  background-size:cover;
+  background-position:center 40%;
+}
+/* Deep gradient: dark at bottom, fades to transparent at top, slight darkening at top for text */
+.hero-fade{
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(to bottom, rgba(10,10,8,0.45) 0%, transparent 20%),
+    linear-gradient(to top, rgba(10,10,8,0.97) 0%, rgba(10,10,8,0.75) 20%, rgba(10,10,8,0.3) 50%, transparent 75%);
+}
+
+.hero-kicker{
+  position:absolute;
+  top:24px;
+  left:32px;
+  font-size:10px;
+  font-weight:600;
+  letter-spacing:.2em;
+  text-transform:uppercase;
+  color:rgba(255,255,255,0.75);
+}
+
+/* Hero content — full bottom of image */
+.hero-content{
+  position:absolute;
+  bottom:0;
+  left:0;
+  right:0;
+  padding:0 32px 48px;
+  max-width:1280px;
+  margin:0 auto;
+  /* keep left-aligned */
+  left:0;right:0;
+}
+
+.h1{
+  font-family:'Oswald',sans-serif;
+  font-weight:700;
+  line-height:.93;
+  color:#F4F2EE;
+  font-size:clamp(32px,5vw,68px);
+  letter-spacing:-.01em;
+  margin-bottom:24px;
+}
 .h1g{color:var(--gold);}
-.hero-desc{font-size:14px;color:rgba(242,242,240,0.82);line-height:1.7;max-width:480px;margin-bottom:26px;}
-.hero-btns{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:40px;}
-.btn-hero-primary{padding:12px 28px;background:var(--gold);color:var(--ink);font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;font-family:'Inter',sans-serif;border:none;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:background .15s;}
+
+.hero-desc{
+  font-size:14px;
+  color:rgba(242,242,240,0.82);
+  line-height:1.7;
+  max-width:480px;
+  margin-bottom:26px;
+}
+
+/* Two CTA buttons below headline */
+.hero-btns{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-bottom:40px;
+}
+.btn-hero-primary{
+  padding:12px 28px;
+  background:var(--gold);
+  color:var(--ink);
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  font-family:'Inter',sans-serif;
+  border:none;
+  cursor:pointer;
+  text-decoration:none;
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  transition:background .15s;
+}
 .btn-hero-primary:hover{background:#A07A08;}
-.btn-hero-secondary{padding:12px 28px;border:1px solid rgba(255,255,255,.45);color:rgba(255,255,255,.85);font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;font-family:'Inter',sans-serif;background:transparent;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:all .15s;}
+.btn-hero-secondary{
+  padding:12px 28px;
+  border:1px solid rgba(255,255,255,.45);
+  color:rgba(255,255,255,.85);
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  font-family:'Inter',sans-serif;
+  background:transparent;
+  cursor:pointer;
+  text-decoration:none;
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  transition:all .15s;
+}
 .btn-hero-secondary:hover{border-color:var(--gold);color:var(--gold);}
-.hero-stats-strip{display:flex;gap:0;border-top:1px solid rgba(255,255,255,.15);padding-top:20px;flex-wrap:wrap;}
-.hss-item{padding:0 28px 0 0;margin-right:28px;border-right:1px solid rgba(255,255,255,.12);}
+
+/* Inline stats strip at bottom of hero */
+.hero-stats-strip{
+  display:flex;
+  gap:0;
+  border-top:1px solid rgba(255,255,255,.15);
+  padding-top:20px;
+  flex-wrap:wrap;
+}
+.hss-item{
+  padding:0 28px 0 0;
+  margin-right:28px;
+  border-right:1px solid rgba(255,255,255,.12);
+}
 .hss-item:last-child{border-right:none;}
-.hss-n{font-family:'Oswald',sans-serif;font-size:28px;font-weight:700;color:var(--gold);line-height:1;margin-bottom:2px;}
-.hss-l{font-size:9px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.5);}
-.stats-row{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);border-top:2px solid var(--gold);border-bottom:1px solid var(--border);}
+.hss-n{
+  font-family:'Oswald',sans-serif;
+  font-size:28px;
+  font-weight:700;
+  color:var(--gold);
+  line-height:1;
+  margin-bottom:2px;
+}
+.hss-l{
+  font-size:9px;
+  font-weight:600;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:rgba(255,255,255,.5);
+}
+
+/* ── STATS (below hero) ── */
+.stats-row{
+  max-width:1280px;
+  margin:0 auto;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  border-top:2px solid var(--gold);
+  border-bottom:1px solid var(--border);
+}
 .stat{padding:20px 22px;border-right:1px solid var(--border);}
 .stat:last-child{border-right:none;}
 .stat-n{font-family:'Oswald',sans-serif;font-size:40px;font-weight:700;color:var(--ink);line-height:1;margin-bottom:3px;}
@@ -75,7 +232,11 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;background:var(--bg2);border
 .stat-s{font-size:10px;color:var(--muted2);}
 .stat-a{font-size:10px;color:var(--gold);text-decoration:none;display:block;margin-top:2px;}
 .stat-a:hover{opacity:.7;}
-#challenge,#wall,#how,#join{scroll-margin-top:52px;}
+
+/* ── SCROLL OFFSET for fixed nav ── */
+#challenge,#wall,#how,#join,#verification,#about,#contact{scroll-margin-top:52px;}
+
+/* ── SHARED ── */
 .sec-lbl{font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;display:flex;align-items:center;gap:10px;}
 .sec-lbl::before{content:'';display:block;width:20px;height:1px;background:var(--gold);}
 .sec-h2{font-family:'Oswald',sans-serif;font-size:clamp(32px,5vw,64px);font-weight:700;line-height:1.0;margin-bottom:14px;}
@@ -84,6 +245,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;background:var(--bg2);border
 .btn-g:hover{background:#A07A08;}
 .btn-o{padding:8px 22px;border:1px solid var(--border);color:var(--muted);font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;background:transparent;cursor:pointer;font-family:'Inter',sans-serif;text-decoration:none;display:inline-block;transition:all .15s;}
 .btn-o:hover{border-color:var(--gold);color:var(--gold);}
+
+/* ── CHALLENGE ── */
 .challenge{padding:72px 32px;background:var(--surface);}
 .ch-in{max-width:1280px;margin:0 auto;}
 .ch-tag{font-size:16px;font-weight:500;color:var(--ink2);margin-bottom:30px;max-width:520px;line-height:1.6;}
@@ -92,6 +255,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;background:var(--bg2);border
 .ch-col:last-child{border-right:none;}
 .ch-ttl{font-size:11px;font-weight:700;color:var(--ink);text-transform:uppercase;letter-spacing:.06em;margin-bottom:7px;}
 .ch-txt{font-size:12px;color:var(--ink2);line-height:1.7;}
+
+/* ── WALL ── */
 .wall-sec{padding:72px 32px 0;background:var(--bg2);}
 .wall-sec-in{max-width:1280px;margin:0 auto;}
 .wgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;margin-top:28px;}
@@ -108,8 +273,11 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;background:var(--bg2);border
 .wc-hash-link{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--gold);text-decoration:none;white-space:nowrap;opacity:.75;transition:opacity .15s;}
 .wc-hash-link:hover{opacity:1;}
 .wall-cta{padding:22px 0;text-align:center;border-top:1px solid var(--gold);margin-top:6px;}
+/* ── CHALLENGE icons ── */
 .ch-icon{width:36px;height:36px;border:1px solid var(--gold);display:flex;align-items:center;justify-content:center;margin-bottom:14px;}
 .ch-icon svg{width:16px;height:16px;color:var(--gold);}
+
+/* ── COMMUNITIES ── */
 .comm-sec{background:var(--bg);}
 .comm-hdr{max-width:1280px;margin:0 auto;padding:72px 32px 0;}
 .comm-grid{display:grid;grid-template-columns:repeat(3,1fr);}
@@ -128,6 +296,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;background:var(--bg2);border
 .cc-name{font-family:'Oswald',sans-serif;font-size:17px;font-weight:600;color:#F2F2F0;margin-bottom:4px;}
 .cc-detail{font-size:10px;color:#C8C8C4;line-height:1.55;}
 .comm-cta-row{text-align:center;padding:20px 32px;border-top:1px solid var(--gold);}
+
+/* ── HOW ── */
 .how-sec{padding:72px 32px;background:var(--surface);}
 .how-in{max-width:1280px;margin:0 auto;}
 .vsteps{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--gold);margin-top:28px;}
@@ -142,6 +312,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;background:var(--bg2);border
 .vp-lbl{font-size:10px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-bottom:2px;}
 .vp-sub{font-size:12px;color:var(--ink2);}
 .vp-hash{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--gold);}
+
+/* ── FORM ── */
 .dform{background:var(--bg2);}
 .dform-in{max-width:1280px;margin:0 auto;padding:72px 32px;}
 .dform-grid{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--border);}
@@ -168,6 +340,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;background:var(--bg2);border
 .sicon{width:46px;height:46px;border:1px solid var(--gold);display:flex;align-items:center;justify-content:center;margin:0 auto 14px;}
 .sttl{font-family:'Oswald',sans-serif;font-size:22px;font-weight:600;color:var(--ink);margin-bottom:6px;}
 .stxt{font-size:12px;color:var(--muted);line-height:1.65;}
+
+/* ── ROADMAP ── */
 .roadmap-sec{padding:72px 32px 0;background:var(--bg);}
 .rm-in{max-width:1280px;margin:0 auto;}
 .rm-grid{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--gold);margin-top:28px;}
@@ -182,6 +356,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;background:var(--bg2);border
 .rmi{display:flex;gap:6px;align-items:flex-start;font-size:11px;color:var(--ink2);line-height:1.55;}
 .rmi.done{color:var(--ink);font-weight:500;}
 .rmi svg{width:12px;height:12px;flex-shrink:0;margin-top:1px;}
+
+/* ── CTA DARK ── */
 .cta-dark{position:relative;overflow:hidden;margin-top:48px;}
 .cta-bg-img{position:absolute;inset:0;background-image:url('alice-kotlyarenko-urt5o3L9gNo-unsplash.jpg');background-size:cover;background-position:center 30%;}
 .cta-overlay{position:absolute;inset:0;background:rgba(10,10,10,.84);}
@@ -189,6 +365,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;background:var(--bg2);border
 .cta-h{font-family:'Oswald',sans-serif;font-size:clamp(40px,7vw,80px);line-height:.95;margin-bottom:18px;color:#F2F2F0;}
 .cta-sub{font-size:14px;color:#A8A8A4;line-height:1.72;margin-bottom:26px;max-width:460px;margin-left:auto;margin-right:auto;}
 .cta-btns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;}
+
+/* ── FOOTER ── */
 footer{background:var(--dark);padding:40px 32px 20px;border-top:2px solid var(--gold);}
 .ft-in{max-width:1280px;margin:0 auto;}
 .ft-grid{display:grid;grid-template-columns:240px 1fr 1fr auto;gap:32px;padding-bottom:22px;border-bottom:1px solid rgba(255,255,255,.07);}
@@ -202,6 +380,8 @@ footer{background:var(--dark);padding:40px 32px 20px;border-top:2px solid var(--
 .ft-copy{font-size:10px;color:var(--muted2);letter-spacing:.08em;text-transform:uppercase;}
 .ft-chain{display:flex;align-items:center;gap:6px;font-size:10px;color:var(--muted2);letter-spacing:.08em;text-transform:uppercase;}
 .ft-dot{width:5px;height:5px;background:var(--gold);}
+
+/* ── RESPONSIVE ── */
 @media(max-width:900px){
   .nav-links{display:none;}
   .burger{display:block;}
@@ -256,6 +436,7 @@ footer{background:var(--dark);padding:40px 32px 20px;border-top:2px solid var(--
 </head>
 <body class="ua">
 
+<!-- NAV -->
 <nav>
   <div class="nav-gold"></div>
   <div class="nav-in">
@@ -264,9 +445,10 @@ footer{background:var(--dark);padding:40px 32px 20px;border-top:2px solid var(--
     </a>
     <div class="nav-links">
       <a class="nav-btn" onclick="goto('#challenge');return false;" href="#challenge"><span class="ua">Проблема</span><span class="en">Challenge</span></a>
+      <a class="nav-btn" onclick="goto('#verification');return false;" href="#verification"><span class="ua">Верифікація</span><span class="en">Verification</span></a>
       <a class="nav-btn" onclick="goto('#wall');return false;" href="#wall"><span class="ua">Стіна відбудовників</span><span class="en">Wall of Rebuilders</span></a>
-      <a class="nav-btn" onclick="goto('#how');return false;" href="#how"><span class="ua">Як це працює</span><span class="en">How it works</span></a>
       <a class="nav-btn" href="map.html"><span class="ua">Карта</span><span class="en">Map</span></a>
+      <a class="nav-btn" onclick="goto('#contact');return false;" href="#contact"><span class="ua">Контакти</span><span class="en">Contact</span></a>
     </div>
     <div class="ltog" id="ltog">
       <button class="on" onclick="setLang('ua')">UA</button>
@@ -278,12 +460,14 @@ footer{background:var(--dark);padding:40px 32px 20px;border-top:2px solid var(--
   </div>
   <div class="mobnav" id="mobnav">
     <a onclick="goto('#challenge');toggleNav();return false;" href="#"><span class="ua">Проблема</span><span class="en">Challenge</span></a>
+    <a onclick="goto('#verification');toggleNav();return false;" href="#"><span class="ua">Верифікація</span><span class="en">Verification</span></a>
     <a onclick="goto('#wall');toggleNav();return false;" href="#"><span class="ua">Стіна відбудовників</span><span class="en">Wall of Rebuilders</span></a>
-    <a onclick="goto('#how');toggleNav();return false;" href="#"><span class="ua">Як це працює</span><span class="en">How it works</span></a>
     <a href="map.html" onclick="toggleNav()"><span class="ua">Карта</span><span class="en">Map</span></a>
+    <a onclick="goto('#contact');toggleNav();return false;" href="#"><span class="ua">Контакти</span><span class="en">Contact</span></a>
   </div>
 </nav>
 
+<!-- HERO -->
 <div class="hero">
   <div class="hero-img">
     <div class="hero-bg"></div>
@@ -292,86 +476,166 @@ footer{background:var(--dark);padding:40px 32px 20px;border-top:2px solid var(--
       <span class="ua">Відкритий реєстр відновлення України</span>
       <span class="en">Open Registry of Ukraine Recovery</span>
     </div>
+    <!-- All content inside the image, overlaid on gradient -->
     <div style="position:absolute;bottom:0;left:0;right:0;padding:0 32px 48px;max-width:1312px;margin:0 auto;left:50%;transform:translateX(-50%);width:100%;">
       <div class="h1">
-        <span class="ua">ЄДИНИЙ<br>ПУБЛІЧНИЙ<br><span class="h1g">РЕЄСТР</span><br>ВІДНОВЛЕННЯ УКРАЇНИ.</span>
-        <span class="en">ONE PUBLIC<br>REGISTRY<br><span class="h1g">OF</span><br>UKRAINE'S RECOVERY.</span>
+        <span class="ua">ЄДИНИЙ<br>РЕЄСТР<br><span class="h1g">ВЕРИФІКОВАНИХ</span><br>РЕЗУЛЬТАТІВ.</span>
+        <span class="en">ONE REGISTRY.<br><span class="h1g">VERIFIED</span><br>RECOVERY<br>RESULTS.</span>
       </div>
       <p class="hero-desc">
-        <span class="ua">UA Rebuild збирає та верифікує дані про відновлення громад, реалізовані проєкти та внески організацій в одному відкритому реєстрі. Не просто звіти — дані, які можна перевірити, дослідити та використовувати.</span>
-        <span class="en">UA Rebuild collects and verifies data on community recovery, completed projects, and organizations' contributions in one open registry. Not just reports — data you can verify, explore, and reuse.</span>
+        <span class="ua">UA Rebuild об'єднує перевірені дані про проєкти відновлення, організації та громади в одному відкритому реєстрі. Не звіти, а структуровані дані, які можна перевірити, дослідити та використовувати.</span>
+        <span class="en">UA Rebuild brings verified recovery projects, organizations, and community progress into one open registry. Not scattered reports, but structured data that can be explored, verified, and reused.</span>
       </p>
       <div class="hero-btns">
         <a class="btn-hero-primary" href="wall.html">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
-          <span class="ua">Організації</span><span class="en">Verified Organizations</span>
+          <span class="ua">Переглянути реєстр</span><span class="en">View the Registry</span>
         </a>
-        <a class="btn-hero-secondary" href="map.html">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg>
-          <span class="ua">Карта відновлення</span><span class="en">Recovery Map</span>
+        <a class="btn-hero-secondary" onclick="goto('#verification');return false;" href="#verification">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+          <span class="ua">Як працює верифікація</span><span class="en">How Verification Works</span>
         </a>
       </div>
+      <a onclick="goto('#contact');return false;" href="#contact" style="display:inline-block;font-size:11px;font-weight:600;letter-spacing:.06em;color:rgba(255,255,255,.65);text-decoration:underline;text-underline-offset:3px;margin-top:-24px;margin-bottom:40px;">
+        <span class="ua">Представляєте організацію? Підтвердити або уточнити дані →</span>
+        <span class="en">Represent an organization? Confirm or correct your data →</span>
+      </a>
+
     </div>
   </div>
 
+  <!-- Stats below hero image -->
   <div style="background:var(--bg);">
     <div class="stats-row">
       <div class="stat">
         <div class="stat-n">9</div>
-        <div class="stat-l"><span class="ua">Записів on-chain</span><span class="en">On-chain records</span></div>
-        <div class="stat-s">BNB Testnet · <span class="ua">активний</span><span class="en">live</span></div>
-        <a class="stat-a" href="https://testnet.bscscan.com/address/0x93f529ad791d7f0fd27ca4091c253b5291947fcd" target="_blank" rel="noopener">View on BscScan →</a>
+        <div class="stat-l"><span class="ua">Верифіковані проєкти</span><span class="en">Verified Projects</span></div>
+        <div class="stat-s"><span class="ua">У реєстрі</span><span class="en">In the registry</span></div>
       </div>
       <div class="stat">
-        <div class="stat-n">5</div>
-        <div class="stat-l"><span class="ua">Громад відстежується</span><span class="en">Communities tracked</span></div>
+        <div class="stat-n">3</div>
+        <div class="stat-l"><span class="ua">Організації</span><span class="en">Organizations</span></div>
         <div class="stat-s"><span class="ua">Пілотна фаза</span><span class="en">Pilot phase</span></div>
       </div>
       <div class="stat">
-        <div class="stat-n">1</div>
-        <div class="stat-l"><span class="ua">Смарт-контракт</span><span class="en">Smart contract</span></div>
-        <div class="stat-s" style="font-family:'IBM Plex Mono',monospace;font-size:9px;">0x93f5...47fcd</div>
+        <div class="stat-n">5</div>
+        <div class="stat-l"><span class="ua">Громади</span><span class="en">Communities</span></div>
+        <div class="stat-s"><span class="ua">У фокусі пілоту</span><span class="en">In pilot scope</span></div>
       </div>
       <div class="stat">
         <div class="stat-n">2026</div>
-        <div class="stat-l"><span class="ua">Пілот запущено</span><span class="en">Pilot launched</span></div>
+        <div class="stat-l"><span class="ua">Пілотні партнери</span><span class="en">Pilot Partners</span></div>
         <div class="stat-s"><span class="ua">Травень · Київ</span><span class="en">May · Kyiv</span></div>
       </div>
     </div>
   </div>
 </div>
 
+<!-- VERIFICATION / TRUST -->
+<section class="challenge" id="verification" style="padding-bottom:56px;">
+  <div class="ch-in">
+    <div class="sec-lbl"><span class="ua">Довіра до даних</span><span class="en">Data You Can Trust</span></div>
+    <div class="sec-h2" style="font-size:clamp(28px,4vw,48px);">
+      <span class="ua">ЯК ПРАЦЮЄ ВЕРИФІКАЦІЯ</span>
+      <span class="en">HOW VERIFICATION WORKS</span>
+    </div>
+    <div class="ch-grid" style="margin-top:8px;">
+      <div class="ch-col">
+        <div class="ch-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8v13H3V8"/><path d="M1 3h22v5H1z"/><path d="M10 12h4"/></svg></div>
+        <div class="ch-ttl"><span class="ua">01 · Збір даних</span><span class="en">01 · Data Collection</span></div>
+        <p class="ch-txt"><span class="ua">Ми збираємо дані з публічних джерел та від організацій.</span><span class="en">We collect data from public sources and directly from organizations.</span></p>
+      </div>
+      <div class="ch-col">
+        <div class="ch-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg></div>
+        <div class="ch-ttl"><span class="ua">02 · Звірка</span><span class="en">02 · Cross-check</span></div>
+        <p class="ch-txt"><span class="ua">Ми звіряємо запис і позначаємо статус перевірки.</span><span class="en">We cross-check the record and assign it a clear verification status.</span></p>
+      </div>
+      <div class="ch-col">
+        <div class="ch-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/></svg></div>
+        <div class="ch-ttl"><span class="ua">03 · Підтвердження</span><span class="en">03 · Confirmation</span></div>
+        <p class="ch-txt"><span class="ua">Організація може підтвердити, уточнити або оновити свій профіль.</span><span class="en">The organization can confirm, correct, or update its own profile.</span></p>
+      </div>
+    </div>
+    <p style="font-size:12px;color:var(--muted);max-width:620px;margin-top:22px;line-height:1.75;">
+      <span class="ua">Ми використовуємо лише публічні або надані організацією дані. Кожен запис має прозорий статус перевірки.</span>
+      <span class="en">We use only public data or data provided directly by organizations. Every record carries a transparent verification status.</span>
+    </p>
+
+    <!-- RECORD STATUS LEGEND -->
+    <div style="margin-top:44px;border-top:1px solid var(--gold);padding-top:24px;">
+      <div class="sec-lbl" style="margin-bottom:18px;"><span class="ua">Статуси записів</span><span class="en">Record Statuses</span></div>
+      <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:2px;">
+        <div style="background:var(--surface);border:1px solid var(--border);padding:16px;">
+          <span class="tag" style="border-color:var(--muted2);color:var(--muted2);">Demo</span>
+          <p style="font-size:11px;color:var(--ink2);line-height:1.6;margin-top:10px;">
+            <span class="ua">Тестовий запис для демонстрації, не є реальним внеском.</span>
+            <span class="en">A sample record used for demonstration, not a real contribution.</span>
+          </p>
+        </div>
+        <div style="background:var(--surface);border:1px solid var(--border);padding:16px;">
+          <span class="tag">Pending</span>
+          <p style="font-size:11px;color:var(--ink2);line-height:1.6;margin-top:10px;">
+            <span class="ua">Подано, очікує звірки з джерелом.</span>
+            <span class="en">Submitted, awaiting cross-check against a source.</span>
+          </p>
+        </div>
+        <div style="background:var(--surface);border:1px solid var(--border);padding:16px;">
+          <span class="tag">Verified · Public</span>
+          <p style="font-size:11px;color:var(--ink2);line-height:1.6;margin-top:10px;">
+            <span class="ua">Підтверджено на основі публічних джерел.</span>
+            <span class="en">Confirmed against publicly available sources.</span>
+          </p>
+        </div>
+        <div style="background:var(--surface);border:1px solid var(--border);padding:16px;">
+          <span class="tag">Confirmed</span>
+          <p style="font-size:11px;color:var(--ink2);line-height:1.6;margin-top:10px;">
+            <span class="ua">Підтверджено самою організацією.</span>
+            <span class="en">Confirmed directly by the organization.</span>
+          </p>
+        </div>
+        <div style="background:var(--surface);border:1px solid var(--border);padding:16px;">
+          <span class="tag">Updated</span>
+          <p style="font-size:11px;color:var(--ink2);line-height:1.6;margin-top:10px;">
+            <span class="ua">Оновлено організацією після початкового запису.</span>
+            <span class="en">Updated by the organization after the initial record.</span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 <section class="challenge" id="challenge">
   <div class="ch-in">
     <div class="sec-lbl"><span class="ua">Проблема</span><span class="en">The Challenge</span></div>
     <div class="sec-h2">
-      <span class="ua">МІЛЬЯРДИ ДОПОМОГИ.<br><span class="gbar">БАГАТО ДАНИХ.</span><br>НЕМАЄ ЄДИНОГО ДЖЕРЕЛА ВЕРИФІКОВАНОЇ ІНФОРМАЦІЇ.</span>
-      <span class="en">BILLIONS IN AID.<br><span class="gbar">LOTS OF DATA.</span><br>NO SINGLE SOURCE OF VERIFIED INFORMATION.</span>
+      <span class="ua">МІЛЬЯРДИ ДОПОМОГИ.<br><span class="gbar">ЖОДНОГО ПУБЛІЧНОГО</span><br>РЕЄСТРУ.</span>
+      <span class="en">BILLIONS IN AID.<br><span class="gbar">NO PUBLIC</span><br>ACCOUNTABILITY.</span>
     </div>
     <p class="ch-tag">
-      <span class="ua">UA Rebuild створює верифікований публічний архів внесків у відновлення України.</span>
-      <span class="en">UA Rebuild builds a verified public archive of contributions to Ukraine's recovery.</span>
+      <span class="ua">UA Rebuild — перший верифікований публічний архів внесків у відновлення України.</span>
+      <span class="en">UA Rebuild is the first verified public archive of contributions to Ukraine's recovery.</span>
     </p>
     <div class="ch-grid">
       <div class="ch-col">
         <div class="ch-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
         <div class="ch-ttl"><span class="ua">Архів внесків</span><span class="en">Contribution archive</span></div>
-        <p class="ch-txt"><span class="ua">На першому етапі — верифіковані проєкти відновлення та гуманітарні внески організацій. Кожен фіксується в єдиному публічному реєстрі після перевірки партнером.</span><span class="en">At this stage — verified reconstruction projects and organizations' humanitarian contributions. Each one is recorded in one public registry after partner verification.</span></p>
+        <p class="ch-txt"><span class="ua">Кожна пожертва, волонтерська акція, відбудований об'єкт — фіксується в єдиному публічному реєстрі. Не звіт. Постійний запис.</span><span class="en">Every donation, volunteer action, rebuilt facility — recorded in one public registry. Not a report. A permanent record.</span></p>
       </div>
       <div class="ch-col">
         <div class="ch-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg></div>
-        <div class="ch-ttl"><span class="ua">Блокчейн-верифікація</span><span class="en">Blockchain verification</span></div>
-        <p class="ch-txt"><span class="ua">Записи верифікуються партнерськими НГО та закріплюються на BNB Chain. Їх неможливо змінити, видалити або фальсифікувати.</span><span class="en">Records are verified by partner NGOs and anchored on BNB Chain. They cannot be altered, deleted, or falsified.</span></p>
+        <div class="ch-ttl"><span class="ua">Перевірений запис</span><span class="en">Verified record</span></div>
+        <p class="ch-txt"><span class="ua">Записи проходять звірку та отримують статус перевірки. Технічно кожен підтверджений запис також фіксується так, щоб його неможливо було непомітно змінити.</span><span class="en">Records go through cross-checking and receive a clear verification status. Technically, every confirmed record is also anchored so it cannot be silently altered.</span></p>
       </div>
       <div class="ch-col">
         <div class="ch-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
-        <div class="ch-ttl"><span class="ua">Публічний архів внесків</span><span class="en">Public contribution archive</span></div>
-        <p class="ch-txt"><span class="ua">Внески організацій та донорів фіксуються у відкритому архіві — доступному журналістам, партнерам і громадам, незалежно від того, хто зараз при владі.</span><span class="en">Organizations' and donors' contributions are recorded in an open archive — accessible to journalists, partners, and communities, regardless of who is currently in power.</span></p>
+        <div class="ch-ttl"><span class="ua">Постійний публічний запис</span><span class="en">A lasting public record</span></div>
+        <p class="ch-txt"><span class="ua">Волонтери, діаспора, міжнародні донори — всі хто допоміг Україні залишаються у відкритому реєстрі, доступному для перевірки будь-ким.</span><span class="en">Volunteers, diaspora, international donors — everyone who contributed to Ukraine's recovery stays in an open registry, open to verification by anyone.</span></p>
       </div>
     </div>
   </div>
 </section>
 
+<!-- WALL OF REBUILDERS -->
 <section class="wall-sec" id="wall">
   <div class="wall-sec-in">
     <div style="display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:16px;margin-bottom:40px;">
@@ -382,8 +646,8 @@ footer{background:var(--dark);padding:40px 32px 20px;border-top:2px solid var(--
           <span class="en">WALL OF<br>REBUILDERS</span>
         </div>
         <p style="font-size:13px;color:var(--muted);max-width:400px;line-height:1.7;">
-          <span class="ua">Верифікований внесок on-chain. Не рейтинг. Не популярність. Лише підтверджений внесок.</span>
-          <span class="en">Verified contribution on-chain. Not a ranking. Not popularity. Just a confirmed contribution.</span>
+          <span class="ua">Верифікований внесок on-chain. Не рейтинг — постійний запис.</span>
+          <span class="en">Verified contribution on-chain. Not a ranking — a permanent record.</span>
         </p>
       </div>
     </div>
@@ -453,6 +717,40 @@ footer{background:var(--dark);padding:40px 32px 20px;border-top:2px solid var(--
   </div>
 </section>
 
+<!-- ABOUT / PROJECT STAGE -->
+<section style="padding:56px 32px;background:var(--bg);border-top:1px solid var(--border);" id="about">
+  <div style="max-width:700px;margin:0 auto;">
+    <div class="sec-lbl"><span class="ua">Чесно про масштаб</span><span class="en">Being Upfront About Scale</span></div>
+    <p style="font-size:14px;color:var(--ink2);line-height:1.85;margin-bottom:14px;">
+      <span class="ua">UA Rebuild зараз на пілотній стадії. Проєкт веде одна людина, без команди чи офісу - це свідомий вибір на цьому етапі, а не тимчасова заглушка. Усі запити на підтвердження, уточнення чи партнерство отримує та обробляє та сама людина, тож відповідь буде особиста, а не шаблонна.</span>
+      <span class="en">UA Rebuild is currently at pilot stage. It's run by one person, with no team or office - that's a deliberate choice at this stage, not a placeholder. Every confirmation, correction, or partnership request is received and handled by that same person, so replies are personal, not templated.</span>
+    </p>
+    <p style="font-size:12px;color:var(--muted);">
+      <span class="ua">Питання, партнерства, фідбек:</span> <span class="en">Questions, partnerships, feedback:</span>
+      <a href="mailto:hello@uarebuild.org" style="color:var(--gold);text-decoration:none;">hello@uarebuild.org</a>
+    </p>
+  </div>
+</section>
+
+<!-- CONTACT / CORRECTION -->
+<section style="padding:64px 32px;background:var(--dark);" id="contact">
+  <div style="max-width:820px;margin:0 auto;text-align:center;">
+    <div class="sec-lbl" style="justify-content:center;"><span class="ua">Для організацій</span><span class="en">For Organizations</span></div>
+    <div class="sec-h2" style="color:#F2F2F0;font-size:clamp(24px,4vw,42px);">
+      <span class="ua">ПОТРІБНО ВИПРАВИТИ АБО ПІДТВЕРДИТИ ЗАПИС?</span>
+      <span class="en">NEED TO CONFIRM OR CORRECT A RECORD?</span>
+    </div>
+    <p style="font-size:13px;color:rgba(255,255,255,.62);max-width:560px;margin:14px auto 28px;line-height:1.8;">
+      <span class="ua">Якщо ви представляєте організацію і хочете підтвердити внесок, подати уточнення чи оновити дані — напишіть нам. Ми відповідаємо особисто.</span>
+      <span class="en">If you represent an organization and want to confirm a contribution, submit a correction, or update your data — reach out. We respond personally.</span>
+    </p>
+    <a class="btn-g" href="mailto:hello@uarebuild.org?subject=Record%20update%20request">
+      <span class="ua">Написати hello@uarebuild.org →</span><span class="en">Email hello@uarebuild.org →</span>
+    </a>
+  </div>
+</section>
+
+<!-- COMMUNITIES -->
 <section class="comm-sec">
   <div class="comm-hdr">
     <div class="sec-lbl"><span class="ua">Жива пам'ять</span><span class="en">Living Memory</span></div>
@@ -461,8 +759,8 @@ footer{background:var(--dark);padding:40px 32px 20px;border-top:2px solid var(--
       <span class="en">RECOVERY STORIES<br>FROM 1,673 COMMUNITIES.</span>
     </div>
     <p style="font-size:13px;color:var(--muted);max-width:460px;line-height:1.7;margin:10px 0 24px;">
-      <span class="ua">Демонстраційні дані пілотної карти — приклад структури, яку заповнюють верифіковані записи громад.</span>
-      <span class="en">Demo data for the pilot map — an example of the structure that verified community records will populate.</span>
+      <span class="ua">Відновлення кожної громади — це історія, не метрика. Верифіковані факти з реальних місць.</span>
+      <span class="en">Each community's recovery is a story, not a metric. These are verified milestones — real places, real progress.</span>
     </p>
   </div>
   <div class="comm-grid">
@@ -514,6 +812,7 @@ footer{background:var(--dark);padding:40px 32px 20px;border-top:2px solid var(--
         <div class="cc-detail"><span class="ua">30% відновлено. Високий пріоритет.</span><span class="en">30% restored. High priority.</span></div>
       </div>
     </div>
+    <!-- Irpin — post-Soviet apartment reconstruction -->
     <div class="cc">
       <div class="cc-bg" style="background-image:url('https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800&q=80');"></div>
       <div class="cc-fade"></div>
@@ -547,23 +846,24 @@ footer{background:var(--dark);padding:40px 32px 20px;border-top:2px solid var(--
   </div>
 </section>
 
-<section class="how-sec" id="how">
+<!-- HOW IT WORKS -->
+<section class="how-sec" id="how" style="background:var(--bg2);">
   <div class="how-in">
-    <div class="sec-lbl"><span class="ua">Як це працює</span><span class="en">How it works</span></div>
-    <div class="sec-h2">
-      <span class="ua">ДОВІРА ВБУДОВАНА В<br><span class="gbar">ІНФРАСТРУКТУРУ</span></span>
-      <span class="en">TRUST BUILT INTO<br><span class="gbar">THE INFRASTRUCTURE</span></span>
+    <div class="sec-lbl"><span class="ua">Технічна деталь</span><span class="en">Technical Note</span></div>
+    <div class="sec-h2" style="font-size:clamp(24px,3.4vw,40px);">
+      <span class="ua">ЯК ЗАПИСИ ЗАХИЩЕНІ ВІД ЗМІН</span>
+      <span class="en">HOW RECORDS ARE PROTECTED FROM SILENT EDITS</span>
     </div>
-    <p style="font-size:13px;color:var(--muted);max-width:460px;line-height:1.7;margin:10px 0 0;">
-      <span class="ua">Від подачі до публічного доказу — кожен крок прозорий, кожен запис незмінний.</span>
-      <span class="en">From submission to public proof — every step is transparent, every record immutable.</span>
+    <p style="font-size:13px;color:var(--muted);max-width:520px;line-height:1.7;margin:10px 0 0;">
+      <span class="ua">Це технічна реалізація кроку 03 з розділу «Як працює верифікація» вище — не окрема функція, а спосіб гарантувати, що підтверджений запис не змінять непомітно.</span>
+      <span class="en">This is the technical implementation of step 03 in "How Verification Works" above — not a separate feature, but a way to guarantee a confirmed record can't be silently altered later.</span>
     </p>
     <div class="vsteps">
       <div class="vs">
         <div class="vs-n"><span class="ua">Крок 01</span><span class="en">Step 01</span></div>
         <div class="vs-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="color:var(--gold)"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/></svg></div>
         <div class="vs-ttl"><span class="ua">Внесок подано</span><span class="en">Contribution Submitted</span></div>
-        <p class="vs-txt"><span class="ua">Проєкт відновлення або гуманітарний внесок подається через платформу або систему партнера.</span><span class="en">Reconstruction project or humanitarian contribution submitted through platform or partner system.</span></p>
+        <p class="vs-txt"><span class="ua">Пожертва, волонтерська акція або звіт НГО подається через платформу або систему партнера.</span><span class="en">Donation, volunteer action, or NGO project report submitted through platform or partner system.</span></p>
       </div>
       <div class="vs">
         <div class="vs-n"><span class="ua">Крок 02</span><span class="en">Step 02</span></div>
@@ -575,7 +875,7 @@ footer{background:var(--dark);padding:40px 32px 20px;border-top:2px solid var(--
         <div class="vs-n"><span class="ua">Крок 03</span><span class="en">Step 03</span></div>
         <div class="vs-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="color:var(--gold)"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg></div>
         <div class="vs-ttl"><span class="ua">Записано on-chain</span><span class="en">Recorded On-Chain</span></div>
-        <p class="vs-txt"><span class="ua">Хеш верифікації назавжди записується на BNB Chain — незмінно, прозоро, публічно доступно.</span><span class="en">Verification hash permanently recorded on BNB Chain — immutable, transparent, publicly accessible.</span></p>
+        <p class="vs-txt"><span class="ua">Хеш верифікації записується на BNB Chain — прозоро й публічно доступно, з датою підтвердження.</span><span class="en">Verification hash recorded on BNB Chain — transparent and publicly accessible, with a confirmation date.</span></p>
       </div>
       <div class="vs">
         <div class="vs-n"><span class="ua">Крок 04</span><span class="en">Step 04</span></div>
@@ -595,18 +895,19 @@ footer{background:var(--dark);padding:40px 32px 20px;border-top:2px solid var(--
   </div>
 </section>
 
+<!-- JOIN FORM -->
 <section class="dform" id="join">
   <div class="dform-in">
     <div class="dform-grid">
       <div class="df-l">
-        <div class="sec-lbl"><span class="ua">Пам'ять вічна</span><span class="en">Memory is permanent</span></div>
+        <div class="sec-lbl"><span class="ua">Прозорий запис</span><span class="en">A transparent record</span></div>
         <div class="df-h">
-          <span class="ua">ЗАЛИШИТИСЬ В ПАМ'ЯТІ УКРАЇНИ НАЗАВЖДИ.</span>
-          <span class="en">STAY IN UKRAINE'S MEMORY FOREVER.</span>
+          <span class="ua">ВАШ ВНЕСОК У ВІДКРИТОМУ РЕЄСТРІ.</span>
+          <span class="en">YOUR CONTRIBUTION IN AN OPEN REGISTRY.</span>
         </div>
         <p class="df-p">
-          <span class="ua">Кожен верифікований внесок записується на блокчейн — публічний архів який неможливо змінити або видалити.</span>
-          <span class="en">Every verified contribution is permanently recorded on blockchain — a public archive that cannot be altered, deleted, or forgotten.</span>
+          <span class="ua">Кожен верифікований внесок отримує статус перевірки та публічний запис у реєстрі, який можна перевірити будь-коли.</span>
+          <span class="en">Every verified contribution gets a verification status and a public registry record you can check at any time.</span>
         </p>
         <div class="df-item">
           <div class="df-chk"><div class="df-chk-in"></div></div>
@@ -619,7 +920,7 @@ footer{background:var(--dark);padding:40px 32px 20px;border-top:2px solid var(--
           <div class="df-chk"><div class="df-chk-in"></div></div>
           <div>
             <div class="df-item-t"><span class="ua">Записано on-chain</span><span class="en">Recorded on-chain</span></div>
-            <div class="df-item-s"><span class="ua">Незмінний публічний запис назавжди</span><span class="en">Immutable public record, forever accessible</span></div>
+            <div class="df-item-s"><span class="ua">Публічний запис зі статусом перевірки</span><span class="en">Public record with a verification status</span></div>
           </div>
         </div>
         <div class="df-item">
@@ -668,8 +969,8 @@ footer{background:var(--dark);padding:40px 32px 20px;border-top:2px solid var(--
               <span class="en">Submit for Verification →</span>
             </button>
             <p class="fnote">
-              <span class="ua">Запис буде верифіковано партнерами та назавжди закріплено on-chain.</span>
-              <span class="en">Your record will be verified by partner organizations and permanently anchored on-chain.</span>
+              <span class="ua">Запис буде звірено партнерами та отримає статус перевірки.</span>
+              <span class="en">Your record will be cross-checked by partners and receive a verification status.</span>
             </p>
           </form>
         </div>
@@ -683,6 +984,7 @@ footer{background:var(--dark);padding:40px 32px 20px;border-top:2px solid var(--
   </div>
 </section>
 
+<!-- ROADMAP -->
 <section class="roadmap-sec">
   <div class="rm-in">
     <div class="sec-lbl"><span class="ua">Дорожня карта</span><span class="en">Development Roadmap</span></div>
@@ -735,6 +1037,7 @@ footer{background:var(--dark);padding:40px 32px 20px;border-top:2px solid var(--
   </div>
 </section>
 
+<!-- CTA -->
 <div class="cta-dark">
   <div class="cta-bg-img"></div>
   <div class="cta-overlay"></div>
@@ -744,8 +1047,8 @@ footer{background:var(--dark);padding:40px 32px 20px;border-top:2px solid var(--
       <span class="en">JOIN UKRAINE'S<br><span class="h1g">RECONSTRUCTION</span></span>
     </div>
     <p class="cta-sub">
-      <span class="ua">Відкриті дані. Блокчейн-верифікація. Постійний публічний запис — не PDF-звіти що зникають.</span>
-      <span class="en">Open data. Blockchain verification. A permanent public record — not PDF reports that disappear.</span>
+      <span class="ua">Відкриті дані. Прозора верифікація. Постійний публічний запис — не PDF-звіти, які губляться в поштових скриньках.</span>
+      <span class="en">Open data. Transparent verification. A public record that stays accessible — not PDF reports that disappear into inboxes.</span>
     </p>
     <div class="cta-btns">
       <a class="btn-g" href="wall.html"><span class="ua">Стіна відбудовників</span><span class="en">Wall of Rebuilders</span></a>
@@ -754,6 +1057,7 @@ footer{background:var(--dark);padding:40px 32px 20px;border-top:2px solid var(--
   </div>
 </div>
 
+<!-- FOOTER -->
 <footer>
   <div class="ft-in">
     <div class="ft-grid">
@@ -774,16 +1078,16 @@ footer{background:var(--dark);padding:40px 32px 20px;border-top:2px solid var(--
         <img src="st-george.svg" alt="" style="height:90px;width:auto;opacity:0.35;filter:brightness(0) invert(1);" onerror="this.style.display='none'"/>
       </div>
       <div class="ft-col">
-        <h4>On-Chain</h4>
-        <a href="https://testnet.bscscan.com/address/0x93f529ad791d7f0fd27ca4091c253b5291947fcd" target="_blank" rel="noopener">View contract ↗</a>
+        <h4><span class="ua">Технічні деталі</span><span class="en">Technical</span></h4>
+        <a href="https://testnet.bscscan.com/address/0x93f529ad791d7f0fd27ca4091c253b5291947fcd" target="_blank" rel="noopener">Verification record ↗</a>
         <span style="font-family:'IBM Plex Mono',monospace;font-size:10px;">BNB Testnet · 9 verifications</span>
         <a href="mailto:hello@uarebuild.org">hello@uarebuild.org</a>
         <a href="https://github.com/asdmarina/uarebuild.org" target="_blank" rel="noopener">GitHub ↗</a>
       </div>
     </div>
     <div class="ft-bot">
-      <div class="ft-copy">© 2026 UA Rebuild · <span class="ua">Всі записи незмінні</span><span class="en">All records immutable</span></div>
-      <div class="ft-chain"><div class="ft-dot"></div><span class="ua">Верифіковано на</span><span class="en">Verified on</span>&nbsp;BNB Chain</div>
+      <div class="ft-copy">© 2026 UA Rebuild · <span class="ua">Кожен запис має статус перевірки</span><span class="en">Every record carries a verification status</span></div>
+      <div class="ft-chain"><div class="ft-dot"></div><span class="ua">Технічно захищено на</span><span class="en">Technically anchored on</span>&nbsp;BNB Chain</div>
     </div>
   </div>
 </footer>
@@ -796,7 +1100,7 @@ function setLang(l){
   document.querySelectorAll('.en').forEach(el=>el.style.display=isUa?'none':'inline');
   document.querySelectorAll('.ltog button').forEach((b,i)=>b.classList.toggle('on', i===(isUa?0:1)));
   document.documentElement.lang=l;
-  document.title=isUa?'UA Rebuild — Україна пам\'ятає кожен внесок':'UA Rebuild — Ukraine Remembers Every Contribution';
+  document.title=isUa?'UA Rebuild — Відкритий реєстр відновлення України':'UA Rebuild — Open Registry of Ukraine Recovery';
   localStorage.setItem('lang',l);
 }
 function goto(s){
@@ -828,6 +1132,7 @@ async function submitForm(e){
     btn.innerHTML='<span class="ua">Подати на верифікацію →</span><span class="en">Submit for Verification →</span>';
   }
 }
+// Init lang from localStorage on every page load
 (function(){
   const saved = localStorage.getItem('lang') || 'ua';
   setLang(saved);
